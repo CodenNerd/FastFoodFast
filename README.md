@@ -29,3 +29,7 @@ Create UI elements for a fast-food application and set up the node/express serve
     b. Accept and decline orders
     c. Mark orders as completed
 6. A user should be able to see a history of ordered food
+
+##Timeline
+
+This project should be completed in four weeks time
