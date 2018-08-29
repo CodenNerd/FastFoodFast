@@ -1,5 +1,9 @@
 # FastFoodFast
 
+#Project Overview
+
+Fast-Food-Fast​ is a food delivery service app for a restaurant.
+
 ##Goal:
 
 Create UI elements for a fast-food application and set up the node/express server and RESTful API, then persist the data with PostgreSQL.
