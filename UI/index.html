@@ -9,12 +9,39 @@
     <script src="js/script.js"></script>
     <style>
         body{
+            margin: 0px;
             background: url("images/bodybg.jpg");
             background-size: cover;
+
+        }
+        .navbar{
+            background: white;
+            position: absolute;
+            top:0;
+            left:0;
+            width:100%;
+            font-family: Calibri, Verdana, Geneva, Tahoma;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            border-bottom: 5px solid cadetblue;
+        }
+        .navbar>a{
+            color:cadetblue;
+            margin-left: 2%;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            
+        }
+        .navbar>a>small{
+            border-top: 2px solid olive;
+            border-bottom: 2px solid orange;
         }
     </style>
 </head>
 <body>
-    
+    <div class="navbar">
+        <a href="index.html">FastFoodFast <small>restaurant</small></a>
+    </div>
 </body>
 </html>
