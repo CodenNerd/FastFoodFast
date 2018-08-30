@@ -23,10 +23,10 @@
             font-family: Calibri, Verdana, Geneva, Tahoma;
             padding-top: 15px;
             padding-bottom: 15px;
-            border-bottom: 5px solid cadetblue;
+            border-bottom: 5px solid darkgoldenrod;
         }
         .navbar>a{
-            color:cadetblue;
+            color:darkgoldenrod;
             margin-left: 2%;
             text-decoration: none;
             font-size: 20px;
@@ -37,11 +37,29 @@
             border-top: 2px solid olive;
             border-bottom: 2px solid orange;
         }
+        .navbar>button{
+            float: right;
+            margin-right: 50px;
+            padding: 5px 50px;
+            background: white;
+            border: 1px solid darkgoldenrod;
+            border-radius: 5px;
+            color: darkgoldenrod;
+            transition: 0.5s;
+            outline: none;
+        }
+        .navbar>button:hover{
+            background-color: darkgoldenrod;
+            color: white;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
     <div class="navbar">
         <a href="index.html">FastFoodFast <small>restaurant</small></a>
+
+        <button>Click Here to Sign Up</button>
     </div>
 </body>
 </html>
