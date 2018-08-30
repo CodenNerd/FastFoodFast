@@ -39,7 +39,7 @@
         }
         .navbar>button{
             float: right;
-            margin-right: 50px;
+            margin-right: 5%;
             padding: 5px 50px;
             background: white;
             border: 1px solid darkgoldenrod;
@@ -53,6 +53,69 @@
             color: white;
             cursor: pointer;
         }
+        #signup-modal{
+            width: 40%;
+            background: black;
+            opacity: 0.8;
+            border-radius: 4px;
+            border: 2px solid dimgrey;
+            float: right;
+            margin-top: 70px;
+            margin-right: 4%;
+            color: grey;
+            padding-left: 2%;
+            padding-right: 2%;
+            padding-bottom: 10px;
+        }
+        .arrow{
+            display: inline-block;
+			position: relative;
+			top:-10px;
+            right: -80%;
+            height:0px;
+			width: 0px;
+			border-right:15px solid transparent;
+			border-left:15px solid transparent;
+			border-bottom: 15px solid black;
+        }
+        #signup-modal form{
+            display: inline-block;
+            width: 100%;
+        }
+        #signup-modal form label{
+            font-weight: bold;
+            text-align: right; 
+        }
+        #signup-modal form input[type="text"]{
+            width: 100%;
+            margin-bottom: 5px;
+            transition: 2s;
+            border: 1px solid white;
+            border-radius: 4px;
+            outline: none;
+            opacity: 0.5;
+        } 
+        #signup-modal form input[type="text"]:focus{
+            background-color: grey;
+            color: white;
+        }
+        #signup-modal form button{
+            margin: 5px;
+            width: 100%;
+            background-color: green;
+            border: 1px solid green;
+            color:white;
+            border-radius: 4px;
+            outline: none;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            transition:1s;
+        }
+        #signup-modal form button:hover{
+            background-color: darkgreen;
+            color: lightgreen;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -60,6 +123,18 @@
         <a href="index.html">FastFoodFast <small>restaurant</small></a>
 
         <button>Click Here to Sign Up</button>
+    </div>
+    <div id="signup-modal">
+        <span class="arrow"></span>
+        <h2>Just One Step! <small>Provide your details and get started</small></h2>
+        <form>
+            <label>Full Name: <input type="text" name="name" id="name"></label> <br>
+            <label>Email: <input type="text" name="email-su" id="email-su"></label><br>
+            <b>Choose User Type: </b>
+            <label><input type="radio" name="usertype" value="admin">Admin</label>
+            <label><input type="radio" name="usertype" value="customer" checked>Customer</label><br>
+            <button type="submit">Submit Form to Sign Up</button>
+        </form>
     </div>
 </body>
 </html>
