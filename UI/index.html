@@ -8,13 +8,31 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
     <script src="js/script.js"></script>
     <style>
-        body{
-            background: url("images/bodybg.jpg");
-            background-size: cover;
-        }
+        
     </style>
+    <script>
+       
+    </script>
 </head>
 <body>
-    
+    <div class="navbar">
+        <a href="index.html">FastFoodFast <small>restaurant</small></a>
+
+        <button onclick="signupClick()">Click Here to Sign Up</button>
+    </div>
+    <div id="signup-modal" class="hidden">
+        <span class="arrow"></span>
+        <h2>Just One Step! <small>Provide your details and get started</small></h2>
+        <form>
+            <label>Full Name: <input type="text" name="name" id="name"></label> <br>
+            <label>Email: <input type="text" name="email-su" id="email-su"></label><br>
+            <b>Choose User Type: </b>
+            <label><input type="radio" name="usertype" value="admin" onclick="showHiddenField()">Admin</label>
+            <label><input type="radio" name="usertype" value="customer" onclick="hideHiddenField()" checked>Customer</label><br>
+            <label id="hiddenField" class="hidden">Admin Pass Key:<input type="text" placeholder="Administrative Pass Key should be obtained directly from the restaurant"></label>
+            <label>Make a Log In Password: <input type="text" name="password" id="password"></label> <br>
+            <button type="submit">Submit Form to Sign Up</button>
+        </form>
+    </div>
 </body>
 </html>
