@@ -36,15 +36,51 @@
             background: url("images/foodshow.jpg"); 
             background-size: cover;
             animation: bg-slide 60s cubic-bezier(0, 0, 0, 0) 0s infinite forwards;
+            margin-bottom: -30px;
         }
         #slide>div{
             width:100%;
             min-height:500px;
             background-color: black;
             opacity: 0.8;
+            color: grey;   
+        }
+        #slide>div>h3{
+            font-size: 30px;
         }
         #login-div{
-            min-height: 200px;
+            opacity: 0.9;      
+            background-color:rgb(70, 30, 1) ;
+            padding: 15px;
+            position: fixed;
+            bottom: 0;
+            left:0;
+            width:100%;
+            color: burlywood;
+            font-weight: bold;
+            border-top:1px dotted black;   
+        }
+        #login-div>form>span{
+            float: left;
+            margin-right: -10%;
+        }
+        #login-div>form input{
+            background-color: rgb(85, 53, 12);
+            color: chocolate;
+            border: 1px solid black;
+        }
+        #login-div>form button{
+            background-color: transparent;
+            border: 5px double rgb(85, 53, 12);
+            border-radius: 5px;
+            color: rgb(85, 53, 12);
+            outline: none;
+
+        }
+        #login-div>form button:hover{
+            cursor: pointer;
+            background-color: green;
+            
         }
     </style>
     <script>
@@ -74,12 +110,23 @@
     <center>
     <div id="container">
         <div id="slide">
-             <div><div id="login-div">
-                
-                </div>
+             <div>
+                 <br>
+                 <h2>At FastFoodFast, we serve yummy meals</h2>
+                 <h3>Sign Up Now! Don't Miss Out On Elegant Dietaries</h3>
             </div>   
         </div>
         
-    </div></center>
+    </div>
+    <div id="login-div">
+        
+            <form action="home.php">
+                <span>Log Into Your Account Here</span>
+                <label>Email: <input type="text" name="email-li" id="email-li"></label>
+                <label>Password: <input type="password" name="password-li" id="password-li"></label>
+                <button type="submit">Log In</button>
+            </form>
+            </div>
+</center>
 </body>
 </html>

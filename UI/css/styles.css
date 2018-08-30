@@ -2,7 +2,7 @@ body{
     margin: 0px;
     background: url("../images/bodybg.jpg");
     background-size: cover;
-
+    font-family: Calibri, Verdana, Geneva, Tahoma;
 }
 .navbar{
     background: white;
@@ -10,7 +10,7 @@ body{
     top:0;
     left:0;
     width:100%;
-    font-family: Calibri, Verdana, Geneva, Tahoma;
+    
     padding-top: 15px;
     padding-bottom: 15px;
     border-bottom: 5px solid darkgoldenrod;
