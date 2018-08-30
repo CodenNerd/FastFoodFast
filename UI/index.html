@@ -8,7 +8,80 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
     <script src="js/script.js"></script>
     <style>
-        
+        #container{
+            width:70%;
+            border: 5px solid black;
+            border-bottom: 0px;
+            border-top-left-radius: 9px;
+            border-top-right-radius: 9px;
+            
+            margin-top: 157px; 
+        }
+        @keyframes bg-slide{
+			0%,25%{
+				background-image: url("images/foodshow.jpg");					
+			}
+			26%,50%{
+				background-image: url("images/foodshow2.jpg");
+			}
+			51%,75%{
+				background-image: url("images/foodshow3.png");
+			}
+			76%,100%{
+				background-image: url("images/foodshow4.jpg");			
+			}
+		}
+        #slide{
+            min-height: 500px;
+            background: url("images/foodshow.jpg"); 
+            background-size: cover;
+            animation: bg-slide 60s cubic-bezier(0, 0, 0, 0) 0s infinite forwards;
+            margin-bottom: -30px;
+        }
+        #slide>div{
+            width:100%;
+            min-height:500px;
+            background-color: black;
+            opacity: 0.8;
+            color: grey;   
+        }
+        #slide>div>h3{
+            font-size: 30px;
+        }
+        #login-div{
+            opacity: 0.9;      
+            background-color:rgb(70, 30, 1) ;
+            padding: 15px;
+            position: fixed;
+            bottom: 0;
+            left:0;
+            width:100%;
+            color: burlywood;
+            font-weight: bold;
+            border-top:1px dotted black;   
+        }
+        #login-div>form>span{
+            float: left;
+            margin-right: -10%;
+        }
+        #login-div>form input{
+            background-color: rgb(85, 53, 12);
+            color: chocolate;
+            border: 1px solid black;
+        }
+        #login-div>form button{
+            background-color: transparent;
+            border: 5px double rgb(85, 53, 12);
+            border-radius: 5px;
+            color: rgb(85, 53, 12);
+            outline: none;
+
+        }
+        #login-div>form button:hover{
+            cursor: pointer;
+            background-color: green;
+            
+        }
     </style>
     <script>
        
@@ -34,5 +107,26 @@
             <button type="submit">Submit Form to Sign Up</button>
         </form>
     </div>
+    <center>
+    <div id="container">
+        <div id="slide">
+             <div>
+                 <br>
+                 <h2>At FastFoodFast, we serve yummy meals on a platter in a jiffy</h2>
+                 <h3>Sign Up Now! Don't Miss Out On Elegant Dietaries</h3>
+            </div>   
+        </div>
+        
+    </div>
+    <div id="login-div">
+        
+            <form action="home.php">
+                <span>Log Into Your Account Here</span>
+                <label>Email: <input type="text" name="email-li" id="email-li"></label>
+                <label>Password: <input type="password" name="password-li" id="password-li"></label>
+                <button type="submit">Log In</button>
+            </form>
+            </div>
+</center>
 </body>
 </html>
