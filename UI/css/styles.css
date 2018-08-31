@@ -218,28 +218,46 @@ body{
    margin-top: 50px;
    background-color: white;
    display: inline-block;
-   padding: 50px;
+   padding: 50px 3%;
    border-right: 5px solid darkgoldenrod;
    border-bottom: 5px solid darkgoldenrod;
    border-bottom-right-radius: 9px;
    height: 500px;
+   max-width: 25%;
 }
 .sidebar>ul{
    list-style-type: none;
    height:300px;
+   padding-left: 0px;
 }
 .sidebar>ul>a{
    text-decoration: none;
    font-weight: bolder;
    border-bottom: 1px solid dimgrey;
+   padding-left: 0%;
+   padding-right: 0%;
 }
 .sidebar>ul>a>li{
    background-color: transparent;
    color:darkgoldenrod;
    border-bottom: 1px solid dimgrey;
    padding-top: 20px;
+   padding-left: 0%;
+   padding-right: 0%;
 }
 .sidebar>ul>a>li:hover{
    border-bottom: 3px dotted darkgoldenrod; 
 }
-
+.content{
+    border:2px solid darkkhaki;
+    min-height: 200px;
+    float:right;
+    margin: 100px 2%;
+    margin-right: 15%;
+    width: 60%;
+}
+@media (max-width: 800px) {
+    .content{
+        margin-right: 2%;
+    }
+}
