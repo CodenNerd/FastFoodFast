@@ -16,3 +16,14 @@
            clicked = true;
            return; 
        }
+       let buttonClicked = true;
+    const toggleSidebar = () =>{
+        if(!buttonClicked){
+            document.getElementById("sidebar").className = "sidebar hidden";
+            buttonClicked = true;
+            return;
+        }
+        document.getElementById("sidebar").className = "sidebar";
+        buttonClicked = false;
+        return;
+    }

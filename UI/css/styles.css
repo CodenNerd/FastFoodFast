@@ -114,9 +114,11 @@ body{
 }
 .hidden{
     display: none;
+    visibility: hidden;
 }
 .shown{
-   display: inline; 
+   display: inline;
+   visibility: visible; 
 }
 #container{
     width:70%;
@@ -193,3 +195,51 @@ body{
     background-color: green;
     
 }
+.dash{
+    display: block;
+    min-width: 20px;
+    min-height: 3px;
+    background-color: darkgoldenrod;
+    margin: -6px auto;
+}
+.tripledash{
+    padding: 9px;
+    background-color: transparent;
+    border: 1px solid darkgoldenrod;
+    border-radius: 3px;
+}
+.navbar>span{
+    display:inline-block;
+    position: relative;
+    top: -5px;
+    left:15px;
+}
+.sidebar{
+   margin-top: 50px;
+   background-color: white;
+   display: inline-block;
+   padding: 50px;
+   border-right: 5px solid darkgoldenrod;
+   border-bottom: 5px solid darkgoldenrod;
+   border-bottom-right-radius: 9px;
+   height: 500px;
+}
+.sidebar>ul{
+   list-style-type: none;
+   height:300px;
+}
+.sidebar>ul>a{
+   text-decoration: none;
+   font-weight: bolder;
+   border-bottom: 1px solid dimgrey;
+}
+.sidebar>ul>a>li{
+   background-color: transparent;
+   color:darkgoldenrod;
+   border-bottom: 1px solid dimgrey;
+   padding-top: 20px;
+}
+.sidebar>ul>a>li:hover{
+   border-bottom: 3px dotted darkgoldenrod; 
+}
+
