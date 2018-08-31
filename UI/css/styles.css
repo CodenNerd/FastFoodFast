@@ -256,7 +256,7 @@ body{
     margin-right: 15%;
     width: 60%;
 }
-@media (max-width: 800px) {
+@media (max-width: 820px) {
     .content{
         margin-right: 2%;
     }
