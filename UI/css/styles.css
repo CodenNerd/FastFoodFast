@@ -129,21 +129,21 @@ body{
 }
 @keyframes bg-slide{
     0%,25%{
-        background-image: url("images/foodshow.jpg");					
+        background-image: url("../images/foodshow.jpg");					
     }
     26%,50%{
-        background-image: url("images/foodshow2.jpg");
+        background-image: url("../images/foodshow2.jpg");
     }
     51%,75%{
-        background-image: url("images/foodshow3.png");
+        background-image: url("../images/foodshow3.png");
     }
     76%,100%{
-        background-image: url("images/foodshow4.jpg");			
+        background-image: url("../images/foodshow4.jpg");			
     }
 }
 #slide{
     min-height: 500px;
-    background: url("images/foodshow.jpg"); 
+    background: transparent; 
     background-size: cover;
     animation: bg-slide 60s cubic-bezier(0, 0, 0, 0) 0s infinite forwards;
     margin-bottom: -30px;
