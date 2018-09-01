@@ -23,8 +23,32 @@
            top: 40%; 
            left: 45%
        }
+       .overlay>center>h3>b{
+           padding: 5px 10px;
+           background: darkgreen;
+            cursor: default;
+       }
+       .overlay>center>h3>b:hover{
+           background-color: rgb(1, 90, 1);
+       } 
+       .overlay>center>div>b{
+           color: red;
+           cursor: default;
+           float: right;
+           margin: 0px 5px;
+       }
+       .overlay>center>div>b:hover{
+           color: brown;
+       }
     </style>
     <script>
+        const showFoodModal = (food = null) =>{
+            document.getElementById("food-item-field").value = food;
+            document.querySelector(".food-item-modal").className = "food-item-modal";
+        }
+        const hideFoodModal = () =>{
+            document.querySelector(".food-item-modal").className = "food-item-modal hidden";
+        }
     
     </script>
 </head>
@@ -37,17 +61,17 @@
        
         <div class="content">
                 <div class="overlay overflow-y">
-                        <center><h3>Available Food Items </h3></center>
+                        <center><h3>Available Food Items <b onclick="showFoodModal()">+ add</b></h3></center>
                         <ul>
-                            <li>Pizza <button class="edit">edit</button></li>
-                            <li>Shawarma <button class="edit">edit</button></li>
-                            <li>Burrito <button class="edit">edit</button></li>
-                            <li>Coke <button class="edit">edit</button></li>
-                            <li>Bread <button class="edit">edit</button></li>
+                            <li>Pizza <button onclick="showFoodModal('Pizza')" class="edit">edit</button></li>
+                            <li>Shawarma <button onclick="showFoodModal('Shawarma')" class="edit">edit</button></li>
+                            <li>Burrito <button onclick="showFoodModal('Burrito')" class="edit">edit</button></li>
+                            <li>Coke <button onclick="showFoodModal('Coke')" class="edit">edit</button></li>
+                            <li>Bread <button onclick="showFoodModal('Bread')" class="edit">edit</button></li>
                         </ul>
-                        <center><div class="food-item-modal hidden">
+                        <center><div class="food-item-modal"> <b onclick="hideFoodModal()">x</b><br>
                                 <form>
-                                    <input type="text" placeholder="Input the food item">
+                                    <input type="text" id="food-item-field" placeholder="Input the food item">
                                     <br><br>
                                     <button class="delivered">Submit</button>
                 
