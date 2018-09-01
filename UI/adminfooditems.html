@@ -7,12 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/styles.css" />
     <script src="js/script.js"></script>
-    <style>
-       
-    </style>
-    <script>
     
-    </script>
 </head>
 <body>
         <div class="navbar">
@@ -22,15 +17,33 @@
         </div>
        
         <div class="content">
-                ...
+                <div class="overlay overflow-y">
+                        <center><h3>Available Food Items <b onclick="showFoodModal()">+ add</b></h3></center>
+                        <ul>
+                            <li>Pizza <button onclick="showFoodModal('Pizza')" class="edit">edit</button> <button class="delete">delete</button></li>
+                            <li>Shawarma <button onclick="showFoodModal('Shawarma')" class="edit">edit</button> <button class="delete">delete</button></li>
+                            <li>Burrito <button onclick="showFoodModal('Burrito')" class="edit">edit</button> <button class="delete">delete</button></li>
+                            <li>Coke <button onclick="showFoodModal('Coke')" class="edit">edit</button> <button class="delete">delete</button></li>
+                            <li>Bread <button onclick="showFoodModal('Bread')" class="edit">edit</button> <button class="delete">delete</button></li>
+                        </ul>
+                        <center><div class="food-item-modal hidden"> <b onclick="hideFoodModal()">x</b><br>
+                                <form>
+                                    <input type="text" id="food-item-field" placeholder="Input the food item">
+                                    <br><br>
+                                    <button class="delivered">Submit</button>
+                
+                                </form>
+                            </div></center>
+                     </div>
             </div>
-
+            
         <div id="sidebar" class="sidebar">
             <ul>
                     <a href="admin.html"><li>Welcome</li></a>
                     <a href="adminorder.html"><li>Current Orders</li></a>
                     <a href="adminfooditems.html"><li>Available Food Items</li></a>
                     <a href="adminlog.html"><li>Log</li></a>
+                    <a href="index.html"><li>Sign Out</li></a>
             </ul>
         </div>
 
