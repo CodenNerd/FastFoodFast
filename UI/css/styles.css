@@ -302,18 +302,18 @@ outline: none;
 opacity: 0.5;
 padding-left: 2%;
 padding-right: 2%;
-   }
-   .overlay select option{
-    opacity: 0.5;
-    background-color: black;
-    border: 1px dotted black;
-    outline: none;
-    color: dimgray;
-   }
-   .overlay form button{
-       width: 30%;
-       height: 30px;
-       background-color: darkolivegreen;
-       border: 1px solid darkgreen;
-       color: lightgrey;
-   }
+}
+.overlay select option{
+opacity: 0.5;
+background-color: black;
+border: 1px dotted black;
+outline: none;
+color: dimgray;
+}
+.overlay form button{
+    width: 30%;
+    height: 30px;
+    background-color: darkolivegreen;
+    border: 1px solid darkgreen;
+    color: lightgrey;
+}
