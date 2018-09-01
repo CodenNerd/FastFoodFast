@@ -327,3 +327,56 @@ color: dimgray;
     border-bottom: 1px solid rgb(46, 42, 42);
     
 }
+.edit{
+    background-color: darkslateblue;
+    color: white;
+    border: 1px solid darkslateblue;
+}
+.food-item-modal{
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 4px;
+    width: 20%;
+    padding: 5px;
+    position: absolute;
+    top: 40%; 
+    left: 45%
+}
+.overlay>center>h3>b{
+    padding: 5px 10px;
+    background: darkgreen;
+     cursor: default;
+}
+.overlay>center>h3>b:hover{
+    background-color: rgb(1, 90, 1);
+} 
+.overlay>center>div>b{
+    color: red;
+    cursor: default;
+    float: right;
+    margin: 0px 5px;
+}
+.overlay>center>div>b:hover{
+    color: brown;
+}
+.delete{
+    background-color: red;
+    color: white;
+    border: 1px solid red;
+}
+.accept{
+    background-color: darkolivegreen;
+    color: white;
+    border: 1px solid darkolivegreen;
+    
+}
+.reject{
+    background-color: brown;
+    color: white;
+    border: 1px solid brown;
+}
+.deliver{
+    background-color: cadetblue;
+    color: white;
+    border: 1px solid cadetblue;
+}

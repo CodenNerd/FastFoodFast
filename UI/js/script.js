@@ -27,3 +27,10 @@
         buttonClicked = false;
         return;
     }
+    const showFoodModal = (food = null) =>{
+        document.getElementById("food-item-field").value = food;
+        document.querySelector(".food-item-modal").className = "food-item-modal";
+    }
+    const hideFoodModal = () =>{
+        document.querySelector(".food-item-modal").className = "food-item-modal hidden";
+    }
