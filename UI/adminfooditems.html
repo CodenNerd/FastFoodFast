@@ -13,6 +13,16 @@
            color: white;
            border: 1px solid darkslateblue;
        }
+       .food-item-modal{
+           background-color: white;
+           border: 1px solid grey;
+           border-radius: 4px;
+           width: 20%;
+           padding: 5px;
+           position: absolute;
+           top: 40%; 
+           left: 45%
+       }
     </style>
     <script>
     
@@ -35,10 +45,17 @@
                             <li>Coke <button class="edit">edit</button></li>
                             <li>Bread <button class="edit">edit</button></li>
                         </ul>
-        
+                        <center><div class="food-item-modal hidden">
+                                <form>
+                                    <input type="text" placeholder="Input the food item">
+                                    <br><br>
+                                    <button class="delivered">Submit</button>
+                
+                                </form>
+                            </div></center>
                      </div>
             </div>
-
+            
         <div id="sidebar" class="sidebar">
             <ul>
                     <a href="admin.html"><li>Welcome</li></a>
