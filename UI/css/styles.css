@@ -321,3 +321,9 @@ color: dimgray;
     border: 1px solid darkgreen;
     color: lightgrey;
 }
+.overlay li{
+    list-style-type: none;
+    padding: 5px;
+    border-bottom: 1px solid rgb(46, 42, 42);
+    
+}
