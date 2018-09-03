@@ -1,0 +1,22 @@
+{
+  "name": "fastfoodfast",
+  "version": "1.0.0",
+  "description": "\"A web app to order fast food in a restaurant\"",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodenNerd/FastFoodFast.git"
+  },
+  "author": "AbdulAzeez Atanda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CodenNerd/FastFoodFast/issues"
+  },
+  "homepage": "https://github.com/CodenNerd/FastFoodFast#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
