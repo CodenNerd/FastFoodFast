@@ -1,4 +1,4 @@
-const orders = [
+let orders = [
     {
         orderId: 1,
         userId: 6,
@@ -32,3 +32,5 @@ const orders = [
         time: '08:15',
     }
 ]
+
+module.exports = orders;
