@@ -15,7 +15,7 @@ const newOrder = (req, res) => {
     orderId: orders.length + 1,
     userId: req.body.userId,
     food: req.body.food,
-    status: 'pending',
+    foodstatus: 'pending',
     date: `${d.getDay()}/${d.getMonth()}/${d.getFullYear()}`,
     time: `${d.getHours()}:${d.getMinutes()}`,
   };
