@@ -4,8 +4,5 @@ module.exports = {
         "node": true,
         "es6": true,
         "mocha": true
-    },
-    "rules":{
-        "linebreak-style": 0
-    }
+    }, 
 };
