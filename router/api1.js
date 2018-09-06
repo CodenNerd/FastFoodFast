@@ -1,6 +1,7 @@
 const express = require('express');
 const orders = require('../data/orders');
 const newOrder = require('../data/newOrder');
+const updateOrder = require('../data/updateOrder');
 
 const api = express.Router();
 api.use(express.json());
@@ -18,5 +19,6 @@ api.get('/orders/:id', (req, res) => {
 
 api.post('/orders', newOrder);
 
+api.put('/orders/:id', updateOrder);
 
 module.exports = api;
