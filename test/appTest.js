@@ -45,4 +45,22 @@ describe('FastFoodFast', () => {
         .expect(/That particular order was not found/, done);
     });
   });
+  describe('POST /orders', () => {
+    it('should create a new order', (done) => {
+      request(app).post('api/v1/orders')
+        .send({
+          userId: 7,
+          food: ['cake'],
+        })
+        .expect('Content-Type', /json/)
+        .expect(201)
+        .end((err, res) => {
+          expect(res.body).to.have.property('food').with.lengthOf(1);
+          expect(res.body).to.have.property('userId').with.lengthOf(1);
+
+          if (err) return done(err);
+          return done();
+        });
+    });
+  });
 });
