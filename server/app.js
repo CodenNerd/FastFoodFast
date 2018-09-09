@@ -1,11 +1,11 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const apiVersion1 = require('./router/api1.js');
+import express from 'express';
+import { json, urlencoded } from 'body-parser';
+import apiVersion1 from './router/api1';
 
 const app = express();
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(json());
+app.use(urlencoded({ extended: false }));
 app.use('/api/v1', apiVersion1);
 
 app.get('/', (req, res) => {
@@ -15,4 +15,4 @@ app.get('/', (req, res) => {
 const port = process.env.PORT || 3000;
 app.listen(port);
 
-module.exports = app;
+export default app;

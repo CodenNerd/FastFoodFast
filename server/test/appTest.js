@@ -1,8 +1,8 @@
-const request = require('supertest');
-const { expect } = require('chai');
+import request from 'supertest';
+import { expect } from 'chai';
 
-const app = require('../app');
-const orders = require('../data/orders');
+import app from '../app';
+import { length } from '../data/orders';
 
 describe('FastFoodFast', () => {
   describe('homepage', () => {
@@ -18,7 +18,7 @@ describe('FastFoodFast', () => {
         .expect('Content-Type', /json/)
         .expect(200)
         .end((err, res) => {
-          expect(orders.length).to.equal(res.body.length).to.equal(4);
+          expect(length).to.equal(res.body.length).to.equal(4);
           expect(res.body).to.be.a('array');
           if (err) return done(err);
           return done();

@@ -1,5 +1,5 @@
-const Joi = require('joi');
-const orders = require('./orders');
+import { array, string, validate } from 'joi';
+import orders from './orders';
 
 const updateOrder = (req, res) => {
   // Check that the request exists
@@ -8,10 +8,10 @@ const updateOrder = (req, res) => {
 
   // Validation of input
   const schema = {
-    food: Joi.array(),
-    foodstatus: Joi.string(),
+    food: array(),
+    foodstatus: string(),
   };
-  const { error } = Joi.validate(req.body, schema);
+  const { error } = validate(req.body, schema);
   if (error) return res.status(400).send(error.details[0].message);
 
   // Success response
@@ -20,4 +20,4 @@ const updateOrder = (req, res) => {
   return res.status(200).send(thisOrder);
 };
 
-module.exports = updateOrder;
+export default updateOrder;

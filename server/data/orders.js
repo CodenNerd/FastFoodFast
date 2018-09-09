@@ -33,4 +33,4 @@ const orders = [
   },
 ];
 
-module.exports = orders;
+export default orders;
