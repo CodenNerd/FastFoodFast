@@ -1,6 +1,6 @@
 import { Router, json } from 'express';
 import { json as _json, urlencoded } from 'body-parser';
-import orders, { find } from '../data/orders';
+import orders from '../data/orders';
 import newOrder from '../data/newOrder';
 import updateOrder from '../data/updateOrder';
 
@@ -15,7 +15,7 @@ api.get('/orders', (req, res) => {
 });
 
 api.get('/orders/:id', (req, res) => {
-  const thisOrder = find(o => o.orderId === Number(req.params.id));
+  const thisOrder = orders.find(o => o.orderId === Number(req.params.id));
   if (!thisOrder) res.status(404).send('That particular order was not found on our server');
 
   res.status(200).send(thisOrder);
