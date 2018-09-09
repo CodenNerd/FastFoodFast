@@ -1,0 +1,382 @@
+body{
+    margin: 0px;
+    background: url("../images/bodybg.jpg");
+    background-size: cover;
+    font-family: Calibri, Verdana, Geneva, Tahoma;
+}
+.navbar{
+    background: white;
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: 5px solid darkgoldenrod;
+}
+.navbar>a{
+    color:darkgoldenrod;
+    margin-left: 2%;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    
+}
+.navbar>a>small{
+    border-top: 2px solid olive;
+    border-bottom: 2px solid orange;
+}
+.navbar>button{
+    float: right;
+    margin-right: 5%;
+    padding: 5px 50px;
+    background: white;
+    border: 1px solid darkgoldenrod;
+    border-radius: 5px;
+    color: darkgoldenrod;
+    transition: 0.5s;
+    outline: none;
+}
+.navbar>button:hover{
+    background-color: darkgoldenrod;
+    color: white;
+    cursor: pointer;
+}
+#signup-modal{
+    position: absolute;
+    right: 0;
+    width: 40%;
+    background: black;
+    opacity: 0.99;
+    border-radius: 4px;
+    border: 3px double dimgrey;
+    float: right;
+    margin-top:-100px;
+    margin-right: 4%;
+    color: grey;
+    padding-left: 2%;
+    padding-right: 3%;
+    padding-bottom: 10px;
+    z-index: +1;
+    
+}
+.arrow{
+    display: inline-block;
+    position: relative;
+    top:-10px;
+    right: -80%;
+    height:0px;
+    width: 0px;
+    border-right:15px solid transparent;
+    border-left:15px solid transparent;
+    border-bottom: 15px solid black;
+}
+#signup-modal form{
+    display: inline-block;
+    width: 100%;
+}
+#signup-modal form label{
+    font-weight: bold;
+    text-align: right; 
+}
+#signup-modal form input[type="text"]{
+    width: 100%;
+    margin-bottom: 5px;
+    transition: 2s;
+    border: 1px solid white;
+    border-radius: 4px;
+    outline: none;
+    opacity: 0.5;
+    padding-left: 2%;
+    padding-right: 2%;
+} 
+#signup-modal form input[type="text"]:focus{
+    background-color: grey;
+    color: white;
+}
+#signup-modal form button{
+    margin: 5px;
+    width: 103%;
+    background-color: green;
+    border: 1px solid green;
+    color:white;
+    border-radius: 4px;
+    outline: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    transition:1s;
+}
+#signup-modal form button:hover{
+    background-color: darkgreen;
+    color: lightgreen;
+    cursor: pointer;
+}
+.hidden{
+    display: none;
+    visibility: hidden;
+}
+.shown{
+   display: inline;
+   visibility: visible; 
+}
+#container{
+    width:70%;
+    border: 5px solid black;
+    border-bottom: 0px;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    
+    margin-top: 157px; 
+}
+@keyframes bg-slide{
+    0%,25%{
+        background-image: url("../images/foodshow.jpg");					
+    }
+    26%,50%{
+        background-image: url("../images/foodshow2.jpg");
+    }
+    51%,75%{
+        background-image: url("../images/foodshow3.jpg");
+    }
+    76%,100%{
+        background-image: url("../images/foodshow4.jpg");			
+    }
+}
+@keyframes home-slide{
+    0%,12%{
+        background-image: url("../images/foodshow5.jpg");					
+    }
+    13%,25%{
+        background-image: url("../images/foodshow6.jpeg");
+    }
+    26%,38%{
+        background-image: url("../images/foodshow7.jpeg");
+    }
+    39%,50%{
+        background-image: url("../images/foodshow8.jpg");			
+    }
+    51%,63%{
+        background-image: url("../images/foodshow9.jpeg");
+    }
+    63%,75%{
+        background-image: url("../images/foodshow10.jpeg");			
+    }
+    76%,88%{
+        background-image: url("../images/foodshow11.png");
+    }
+    89%,100%{
+        background-image: url("../images/foodshow12.jpg");			
+    }
+}
+#slide{
+    min-height: 500px;
+    background: transparent; 
+    background-size: cover;
+    animation: bg-slide 60s cubic-bezier(0, 0, 0, 0) 0s infinite forwards;
+    margin-bottom: -30px;
+}
+#slide>div, .overlay{
+    width:100%;
+    min-height:500px;
+    background-color: black;
+    opacity: 0.8;
+    color: grey;
+    z-index: -1;
+           
+}
+.overflow-y{
+    overflow-y: scroll;
+}
+#slide>div>h3{
+    font-size: 30px;
+}
+#login-div{
+    opacity: 0.9;      
+    background-color:rgb(70, 30, 1) ;
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    left:0;
+    width:100%;
+    color: burlywood;
+    font-weight: bold;
+    border-top:1px dotted black;   
+}
+#login-div>form>span{
+    float: left;
+    margin-right: -10%;
+}
+#login-div>form input{
+    background-color: rgb(85, 53, 12);
+    color: chocolate;
+    border: 1px solid black;
+}
+#login-div>form button{
+    background-color: transparent;
+    border: 5px double rgb(85, 53, 12);
+    border-radius: 5px;
+    color: rgb(85, 53, 12);
+    outline: none;
+
+}
+#login-div>form button:hover{
+    cursor: pointer;
+    background-color: green;
+    
+}
+.dash{
+    display: block;
+    min-width: 20px;
+    min-height: 3px;
+    background-color: darkgoldenrod;
+    margin: -6px auto;
+}
+.tripledash{
+    padding: 9px;
+    background-color: transparent;
+    border: 1px solid darkgoldenrod;
+    border-radius: 3px;
+}
+.navbar>span{
+    display:inline-block;
+    position: relative;
+    top: -5px;
+    left:15px;
+}
+.sidebar{
+   margin-top: 50px;
+   background-color: white;
+   display: inline-block;
+   padding: 50px 3%;
+   border-right: 5px solid darkgoldenrod;
+   border-bottom: 5px solid darkgoldenrod;
+   border-bottom-right-radius: 9px;
+   height: 500px;
+   max-width: 25%;
+}
+.sidebar>ul{
+   list-style-type: none;
+   height:300px;
+   padding-left: 0px;
+}
+.sidebar>ul>a{
+   text-decoration: none;
+   font-weight: bolder;
+   border-bottom: 1px solid dimgrey;
+   padding-left: 0%;
+   padding-right: 0%;
+}
+.sidebar>ul>a>li{
+   background-color: transparent;
+   color:darkgoldenrod;
+   border-bottom: 1px solid dimgrey;
+   padding-top: 20px;
+   padding-left: 0%;
+   padding-right: 0%;
+}
+.sidebar>ul>a>li:hover{
+   border-bottom: 3px dotted darkgoldenrod; 
+}
+.content{
+    border:2px solid darkkhaki;
+    min-height: 200px;
+    float:right;
+    margin: 100px 2%;
+    margin-right: 15%;
+    width: 60%;
+}
+@media (max-width: 900px) {
+    .content{
+        margin-right: 2%;
+    }
+}
+.home-images{
+    animation: home-slide 60s cubic-bezier(0, 0, 0, 0) 0s infinite forwards;
+    background-size: cover;
+    height: 500px;
+}
+.overlay select{
+    width: 50%;
+margin-bottom: 5px;
+transition: 2s;
+border: 1px solid white;
+border-radius: 4px;
+outline: none;
+opacity: 0.5;
+padding-left: 2%;
+padding-right: 2%;
+}
+.overlay select option{
+opacity: 0.5;
+background-color: black;
+border: 1px dotted black;
+outline: none;
+color: dimgray;
+}
+.overlay form button{
+    width: 30%;
+    height: 30px;
+    background-color: darkolivegreen;
+    border: 1px solid darkgreen;
+    color: lightgrey;
+}
+.overlay li{
+    list-style-type: none;
+    padding: 5px;
+    border-bottom: 1px solid rgb(46, 42, 42);
+    
+}
+.edit{
+    background-color: darkslateblue;
+    color: white;
+    border: 1px solid darkslateblue;
+}
+.food-item-modal{
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 4px;
+    width: 20%;
+    padding: 5px;
+    position: absolute;
+    top: 40%; 
+    left: 45%
+}
+.overlay>center>h3>b{
+    padding: 5px 10px;
+    background: darkgreen;
+     cursor: default;
+}
+.overlay>center>h3>b:hover{
+    background-color: rgb(1, 90, 1);
+} 
+.overlay>center>div>b{
+    color: red;
+    cursor: default;
+    float: right;
+    margin: 0px 5px;
+}
+.overlay>center>div>b:hover{
+    color: brown;
+}
+.delete{
+    background-color: red;
+    color: white;
+    border: 1px solid red;
+}
+.accept{
+    background-color: darkolivegreen;
+    color: white;
+    border: 1px solid darkolivegreen;
+    
+}
+.reject{
+    background-color: brown;
+    color: white;
+    border: 1px solid brown;
+}
+.deliver{
+    background-color: cadetblue;
+    color: white;
+    border: 1px solid cadetblue;
+}
