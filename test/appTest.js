@@ -63,4 +63,22 @@ describe('FastFoodFast', () => {
         });
     });
   });
+
+  describe('PUT /an order', () => {
+    it('should update an order', (done) => {
+      request(app).put('/api/v1/orders/3')
+        .send({
+          food: ['bread'],
+          foodstatus: 'pending',
+        })
+        .expect('Content-Type', /json/)
+        .expect(200)
+        .end((err, res) => {
+          expect(res.body).to.have.property('food').with.lengthOf(1);
+          expect(res.body.foodstatus).to.equal('pending');
+          if (err) return done(err);
+          return done();
+        });
+    });
+  });
 });
