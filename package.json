@@ -1,0 +1,40 @@
+{
+  "name": "fastfoodfast",
+  "version": "1.0.0",
+  "description": "\"A web app to order fast food in a restaurant\"",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha || true",
+    "start": "node bin/dev",
+    "clean": "rm -rf dist",
+    "build": "npm run clean && mkdir dist && babel server -s -d dist",
+    "production": "npm run build && node bin/production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodenNerd/FastFoodFast.git"
+  },
+  "author": "AbdulAzeez Atanda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CodenNerd/FastFoodFast/issues"
+  },
+  "homepage": "https://github.com/CodenNerd/FastFoodFast#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "joi": "^13.6.0",
+    "chai": "^4.1.2",
+    "supertest": "^3.3.0",
+    "mocha": "^5.2.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
+  }
+}
