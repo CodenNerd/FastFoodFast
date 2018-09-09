@@ -25,4 +25,24 @@ describe('FastFoodFast', () => {
         });
     });
   });
+  describe('GET /order', () => {
+    it('should get a single order', (done) => {
+      request(app).get('/api/v1/orders/3')
+        .expect('Content-Type', /json/)
+        .expect(200)
+        .end((err, res) => {
+          expect(res.body).to.have.property('food').with.lengthOf(1);
+          expect(res.body.food).to.be.a('array');
+          if (err) return done(err);
+          return done();
+        });
+    });
+
+    it('should not get an order', (done) => {
+      request(app).get('/api/v1/orders/9')
+        .expect('Content-Type', /text\/html/)
+        .expect(404)
+        .expect(/That particular order was not found/, done);
+    });
+  });
 });
