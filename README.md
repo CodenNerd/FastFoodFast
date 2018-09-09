@@ -1,14 +1,14 @@
 # FastFoodFast
 
-#Project Overview
+<h3>Project Overview</h3>
 
 Fast-Food-Fast​ is a food delivery service app for a restaurant.
 
-##Goal:
+<h3>Goal:</h3>
 
 Create UI elements for a fast-food application and set up the node/express server and RESTful API, then persist the data with PostgreSQL.
 
-##What Technologies Is Needed:
+<h3>What Technologies Is Needed:</h3>
 
 - NodeJS/Express <small>Server-side programming</small>
 - ESLint <small>Linting Library, Airbnb style guide</small>
@@ -18,7 +18,7 @@ Create UI elements for a fast-food application and set up the node/express serve
 - Pivotal Tracker <small> Project Management Board </small>
 - GitHub <small> Track changes over time in the project </small>
 
-##Required Features of the App
+<h3>Required Features of the App</h3>
 
 1. Users can create an account and log in
 2. A user should be able to order for food
@@ -30,6 +30,6 @@ Create UI elements for a fast-food application and set up the node/express serve
     c. Mark orders as completed
 6. A user should be able to see a history of ordered food
 
-##Timeline
+<h3>Timeline</h3>
 
 This project should be completed in four weeks time
