@@ -4,7 +4,7 @@ const orders = require('./orders');
 const newOrder = (req, res) => {
   const schema = {
     userId: Joi.number().integer().required(),
-    food: Joi.string().required(),
+    food: Joi.array().required(),
   };
 
   const { error } = Joi.validate(req.body, schema);
@@ -21,7 +21,7 @@ const newOrder = (req, res) => {
   };
 
   orders.push(order);
-  return res.status(200).send(orders);
+  return res.status(201).send(order); // am I supposed to redirect here?
 };
 
 module.exports = newOrder;

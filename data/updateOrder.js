@@ -8,8 +8,8 @@ const updateOrder = (req, res) => {
 
   // Validation of input
   const schema = {
-    food: Joi.string().required(),
-    foodstatus: Joi.string().required(),
+    food: Joi.array(),
+    foodstatus: Joi.string(),
   };
   const { error } = Joi.validate(req.body, schema);
   if (error) return res.status(400).send(error.details[0].message);
