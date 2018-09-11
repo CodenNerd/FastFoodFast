@@ -9,11 +9,3 @@ cache:
   - "$HOME/.npm"
 script:
   - npm run test
-deploy:
-  provider: heroku
-  api_key:
-    secure:
-  app: 
-    develop: 
-after_success: npm run coverage
-
