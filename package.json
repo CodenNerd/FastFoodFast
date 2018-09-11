@@ -10,7 +10,7 @@
     "build": "npm run clean && mkdir dist && babel server -s -d dist",
     "production": "npm run build && node bin/production",
     "server": "nodemon server/app.js --exec babel-node",
-    "heroku-postbuild": "npm install",
+    "heroku-postbuild": "npm install && npm run production",
     "starts": "babel-node server/app.js"
   },
   "repository": {
