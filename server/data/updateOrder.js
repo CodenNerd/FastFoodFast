@@ -1,4 +1,4 @@
-import { array, string, validate } from 'joi';
+import joi from 'joi';
 import orders from './orders';
 
 const updateOrder = (req, res) => {
@@ -8,10 +8,10 @@ const updateOrder = (req, res) => {
 
   // Validation of input
   const schema = {
-    food: array(),
-    foodstatus: string(),
+    food: joi.array(),
+    foodstatus: joi.string(),
   };
-  const { error } = validate(req.body, schema);
+  const { error } = joi.validate(req.body, schema);
   if (error) return res.status(400).send(error.details[0].message);
 
   // Success response

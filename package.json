@@ -1,6 +1,9 @@
 {
   "name": "fastfoodfast",
   "version": "1.0.0",
+  "engines": {
+    "node": "8.11.2"
+  },
   "description": "\"A web app to order fast food in a restaurant\"",
   "main": "app.js",
   "scripts": {

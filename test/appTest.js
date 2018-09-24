@@ -47,16 +47,18 @@ describe('FastFoodFast', () => {
   });
   describe('POST /orders', () => {
     it('should create a new order', (done) => {
+      const newOrder = {
+        userId: 5,
+        food: ['cake'],
+      };
       request(app).post('api/v1/orders')
-        .send({
-          userId: 7,
-          food: ['cake'],
-        })
+        .send(newOrder)
         .expect('Content-Type', /json/)
         .expect(201)
         .end((err, res) => {
-          expect(res.body).to.have.property('food').with.lengthOf(1);
-          expect(res.body).to.have.property('userId').with.lengthOf(1);
+          console.log(newOrder);
+          expect(newOrder).to.have.property('food');
+          expect(newOrder).to.have.property('userId');
 
           if (err) return done(err);
           return done();
