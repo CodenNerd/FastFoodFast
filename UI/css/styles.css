@@ -27,7 +27,7 @@ body{
     border-top: 2px solid olive;
     border-bottom: 2px solid orange;
 }
-.navbar button:not('.trippledash'){
+.navbar button:not(.trippledash){
     float: right;
     margin-right: 5%;
     padding: 5px 50px;
