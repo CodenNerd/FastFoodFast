@@ -44,15 +44,13 @@ body{
     cursor: pointer;
 }
 #signup-modal{
-    position: absolute;
-    right: 0;
     width: 40%;
     background: black;
     opacity: 0.99;
     border-radius: 4px;
     border: 3px double dimgrey;
-    float: right;
-    margin-top:-100px;
+    display: none;
+    margin-top:100px;
     margin-right: 4%;
     color: grey;
     padding-left: 2%;
@@ -61,17 +59,7 @@ body{
     z-index: +1;
     
 }
-.arrow{
-    display: inline-block;
-    position: relative;
-    top:-10px;
-    right: -80%;
-    height:0px;
-    width: 0px;
-    border-right:15px solid transparent;
-    border-left:15px solid transparent;
-    border-bottom: 15px solid black;
-}
+
 #signup-modal form{
     display: inline-block;
     width: 100%;
@@ -80,38 +68,10 @@ body{
     font-weight: bold;
     text-align: right; 
 }
-#signup-modal form input[type="text"]{
-    width: 100%;
-    margin-bottom: 5px;
-    transition: 2s;
-    border: 1px solid white;
-    border-radius: 4px;
-    outline: none;
-    opacity: 0.5;
-    padding-left: 2%;
-    padding-right: 2%;
-} 
-#signup-modal form input[type="text"]:focus{
-    background-color: grey;
-    color: white;
-}
-#signup-modal form button{
-    margin: 5px;
-    width: 103%;
-    background-color: green;
-    border: 1px solid green;
-    color:white;
-    border-radius: 4px;
-    outline: none;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    transition:1s;
-}
-#signup-modal form button:hover{
-    background-color: darkgreen;
-    color: lightgreen;
-    cursor: pointer;
-}
+
+
+
+
 .hidden{
     display: none;
     visibility: hidden;
@@ -379,4 +339,49 @@ color: dimgray;
     background-color: cadetblue;
     color: white;
     border: 1px solid cadetblue;
+}
+.user-forms{
+    padding: 30px 3%;
+    background-color: white;
+    width: 30%;
+    border-top: 5px solid dimgrey;
+    border-bottom: 5px solid dimgrey;
+    border-right: 1px dotted darkgoldenrod;
+    border-left: 1px dotted darkgoldenrod;
+    font-weight: bolder;
+    color: dimgray;
+    margin: 150px auto; 
+    text-align: left; 
+    opacity: 0.95;
+}
+.user-forms label{
+    display: block;
+}
+.user-forms input{
+    width: 100%;
+    margin-bottom: 20px;
+    transition: 2s;
+    border: 1px solid grey;
+} 
+.user-forms button{
+    margin: 5px;
+    width: 103%;
+    background-color: green;
+    border: 1px solid green;
+    color:white;
+    border-radius: 4px;
+    outline: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    transition:1s;
+    margin-left: -1%; 
+}
+.user-forms button:hover{
+    background-color: darkgreen;
+    color: lightgreen;
+    cursor: pointer;
+}
+.user-forms  input:focus{
+    outline: none;
+    border: 1px solid darkolivegreen;
 }
