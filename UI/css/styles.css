@@ -151,7 +151,7 @@ body{
 #slide>div>h3{
     font-size: 30px;
 }
-#login-div{
+#footer{
     opacity: 0.9;      
     background-color:rgb(70, 30, 1) ;
     padding: 15px;
@@ -162,28 +162,6 @@ body{
     color: burlywood;
     font-weight: bold;
     border-top:1px dotted black;   
-}
-#login-div>form>span{
-    float: left;
-    margin-right: -10%;
-}
-#login-div>form input{
-    background-color: rgb(85, 53, 12);
-    color: chocolate;
-    border: 1px solid black;
-}
-#login-div>form button{
-    background-color: transparent;
-    border: 5px double rgb(85, 53, 12);
-    border-radius: 5px;
-    color: rgb(85, 53, 12);
-    outline: none;
-
-}
-#login-div>form button:hover{
-    cursor: pointer;
-    background-color: green;
-    
 }
 .dash{
     display: block;
