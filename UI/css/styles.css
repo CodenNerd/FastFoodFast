@@ -440,3 +440,12 @@ color: dimgray;
     float: right;
     margin-right: 2%;
 }
+@font-face {
+    font-family: Eutemia;
+    src: url(../fonts/Eutemia.ttf);
+}
+
+#container #slide p{
+    font-size: 40px;    
+    font-family: Eutemia;
+}
