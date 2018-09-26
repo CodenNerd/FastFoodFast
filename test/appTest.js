@@ -51,14 +51,13 @@ describe('FastFoodFast', () => {
         userId: 5,
         food: ['cake'],
       };
-      request(app).post('api/v1/orders')
+      request(app).post('/api/v1/orders')
         .send(newOrder)
         .expect('Content-Type', /json/)
         .expect(201)
         .end((err, res) => {
-          console.log(newOrder);
-          expect(newOrder).to.have.property('food');
-          expect(newOrder).to.have.property('userId');
+          expect(res.body).to.have.property('food');
+          expect(res.body).to.have.property('userId');
 
           if (err) return done(err);
           return done();
