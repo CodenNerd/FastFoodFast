@@ -18,7 +18,7 @@ body{
 }
 .navbar>a{
     color:darkgoldenrod;
-    margin-left: 2%;
+    margin-left: 5%;
     text-decoration: none;
     font-size: 20px;
     font-weight: bold;    
@@ -27,7 +27,7 @@ body{
     border-top: 2px solid olive;
     border-bottom: 2px solid orange;
 }
-.navbar button:not(.trippledash){
+.navbar button{
     float: right;
     margin-right: 5%;
     padding: 5px 50px;
@@ -170,13 +170,17 @@ body{
     background-color: darkgoldenrod;
     margin: -6px auto;
 }
-.tripledash{
+
+span .tripledash{
     padding: 9px;
     background-color: transparent;
     border: 1px solid darkgoldenrod;
     border-radius: 3px;
+    position: absolute;
+    top:-15px;
     z-index: +2;
 }
+
 .navbar>span{
     display:inline-block;
     position: relative;

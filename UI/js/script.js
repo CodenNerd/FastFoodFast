@@ -16,7 +16,7 @@
            clicked = true;
            return; 
        }
-       let buttonClicked = true;
+       let buttonClicked = false;
     const toggleSidebar = () =>{
         if(!buttonClicked){
             document.getElementById("sidebar").className = "sidebar hidden";
