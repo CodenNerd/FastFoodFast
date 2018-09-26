@@ -256,7 +256,7 @@ border: 1px dotted black;
 outline: none;
 color: dimgray;
 }
-.overlay form button{
+.overlay form>button{
     width: 30%;
     height: 30px;
     background-color: darkolivegreen;
@@ -447,4 +447,7 @@ color: dimgray;
 #container #slide p{
     font-size: 40px;    
     font-family: Eutemia;
+}
+.overlay .red{
+    background-color: red;
 }
