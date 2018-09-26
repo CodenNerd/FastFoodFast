@@ -28,7 +28,9 @@
                         </ul>
                         <center><div class="food-item-modal hidden"> <b onclick="hideFoodModal()">x</b><br>
                                 <form>
-                                    <input type="text" id="food-item-field" placeholder="Input the food item">
+                                    <input type="text" id="food-item-field" placeholder="Input the food item" required>
+                                    <input type="file" accept="image/*" class="modal-img" placeholder="Image" required>
+                                    <input type="number" placeholder="price" required>
                                     <br><br>
                                     <button class="delivered">Submit</button>
                 

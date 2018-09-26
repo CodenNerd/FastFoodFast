@@ -283,7 +283,16 @@ color: dimgray;
     padding: 5px;
     position: absolute;
     top: 40%; 
-    left: 45%
+    left: 45%;
+    overflow-x: hidden;
+}
+.food-item-modal input[type=file]{
+    width: 63%;
+    margin: 3px auto;
+    border: 1px solid grey;
+}
+.food-item-modal input{
+    min-width: 5px;
 }
 .overlay>center>h3>b{
     padding: 5px 10px;
