@@ -425,3 +425,9 @@ color: dimgray;
     font-size: 30px;
     color: white;
 }
+#cartlogo{
+    width:25px;
+    height: 25px;
+    float: right;
+    margin-right: 2%;
+}
