@@ -1,15 +1,69 @@
-// import { number, array, validate } from 'joi';
-import joi from 'joi';
 import orders from './orders';
 
-const newOrder = (req, res) => {
-  const schema = {
-    userId: joi.number().integer().required(),
-    food: joi.array().required(),
-  };
+const validateAs = (item, datatype) => {
+  switch (datatype) {
+    case 'required':
+      if (!item) {
+        return {
+          errormessage: `${item} is required`,
+          status: false,
+        };
+      }
+      break;
+    case 'number':
+      if (typeof item !== 'number') {
+        return {
+          errormessage: `${item} should be a number`,
+          status: false,
+        };
+      }
+      break;
+    case 'integer':
+      if (!item.isInteger()) {
+        return {
+          errormessage: `${item} should be an integer`,
+          status: false,
+        };
+      }
+      break;
+    case 'array':
+      if (!item.isArray()) {
+        return {
+          errormessage: `${item} should be an array`,
+          status: false,
+        };
+      }
+      break;
+    case 'string':
+      if (typeof item !== 'string') {
+        return {
+          errormessage: `${item} should be a string`,
+          status: false,
+        };
+      }
+      break;
+    case 'object':
+      if (typeof item !== 'object') {
+        return {
+          errormessage: `${item} should be an object`,
+          status: false,
+        };
+      }
+      break;
+    default:
+      return {
+        errormessage: `cannot resolve schema of ${item}`,
+        status: false,
+      };
+  }
+  return true;
+};
 
-  const { error } = joi.validate(req.body, schema);
-  if (error) return res.status(400).send(error.details[0].message);
+
+const newOrder = (req, res) => {
+  let error = validateAs(req.body.userId, 'integer').errormessage || validateAs(req.body.userId, 'required').errormessage;
+  if (error) return res.status(400).send(error);
+  error = validateAs(req.body.food, 'object').errormessage || validateAs(req.body.userId, 'required').errormessage;
 
   const d = new Date();
   const order = {
@@ -24,5 +78,6 @@ const newOrder = (req, res) => {
   orders.push(order);
   return res.status(201).json(order); // am I supposed to redirect here?
 };
+
 
 export default newOrder;
