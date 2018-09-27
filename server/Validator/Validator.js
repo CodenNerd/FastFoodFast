@@ -17,7 +17,7 @@ const validateAs = (item, datatype) => {
       }
       break;
     case 'integer':
-      if (!item.isInteger()) {
+      if (item !== Math.floor(item) || item !== Math.ceil(item)) {
         return {
           errormessage: `${item} should be an integer`,
           status: false,
