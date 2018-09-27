@@ -1,15 +1,12 @@
-// import { number, array, validate } from 'joi';
-import joi from 'joi';
 import orders from './orders';
+import Validator from '../Validator/Validator';
 
 const newOrder = (req, res) => {
-  const schema = {
-    userId: joi.number().integer().required(),
-    food: joi.array().required(),
-  };
-
-  const { error } = joi.validate(req.body, schema);
-  if (error) return res.status(400).send(error.details[0].message);
+  Validator(req.body.userId, ['integer', 'required'], res);
+  Validator(req.body.food, ['object', 'required'], res);
+  Validator(req.body.food.foodname, ['string', 'required'], res);
+  Validator(req.body.food.quantity, ['integer', 'required'], res);
+  Validator(req.body.food.price, ['number', 'required'], res);
 
   const d = new Date();
   const order = {
@@ -24,5 +21,6 @@ const newOrder = (req, res) => {
   orders.push(order);
   return res.status(201).json(order); // am I supposed to redirect here?
 };
+
 
 export default newOrder;

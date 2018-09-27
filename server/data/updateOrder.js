@@ -1,5 +1,5 @@
-import joi from 'joi';
 import orders from './orders';
+import Validator from '../Validator/Validator';
 
 const updateOrder = (req, res) => {
   // Check that the request exists
@@ -7,17 +7,26 @@ const updateOrder = (req, res) => {
   if (!thisOrder) return res.status(404).send('That particular order was not found on our server');
 
   // Validation of input
-  const schema = {
-    food: joi.array(),
-    foodstatus: joi.string(),
-  };
-  const { error } = joi.validate(req.body, schema);
-  if (error) return res.status(400).send(error.details[0].message);
+  if (req.body.food === undefined && req.body.foodstatus === undefined) {
+    res.status(400).send('Values not provided');
+  }
+  if (req.body.food) {
+    if (Validator(req.body.food, ['object'], res) === true) {
+      Validator(req.body.food.foodname, ['string'], res);
+      Validator(req.body.food.quantity, ['integer'], res);
+      Validator(req.body.food.price, ['number'], res);
+    }
+    thisOrder.food = req.body.food;
+  }
+  if (req.body.foodstatus) {
+    Validator(req.body.foodstatus, ['string'], res);
+    thisOrder.foodstatus = req.body.foodstatus;
+  }
+
 
   // Success response
-  thisOrder.food = req.body.food;
-  thisOrder.foodstatus = req.body.foodstatus;
-  return res.status(200).send(thisOrder);
+
+  return res.status(202).send(thisOrder);
 };
 
 export default updateOrder;

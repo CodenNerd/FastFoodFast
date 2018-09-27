@@ -31,8 +31,8 @@ describe('FastFoodFast', () => {
         .expect('Content-Type', /json/)
         .expect(200)
         .end((err, res) => {
-          expect(res.body).to.have.property('food').with.lengthOf(1);
-          expect(res.body.food).to.be.a('array');
+          expect(res.body).to.have.property('food');
+          expect(res.body.food).to.be.a('object');
           if (err) return done(err);
           return done();
         });
@@ -49,7 +49,11 @@ describe('FastFoodFast', () => {
     it('should create a new order', (done) => {
       const newOrder = {
         userId: 5,
-        food: ['cake'],
+        food: {
+          foodname: 'amala',
+          quantity: 4,
+          price: 3,
+        },
       };
       request(app).post('/api/v1/orders')
         .send(newOrder)
@@ -67,16 +71,21 @@ describe('FastFoodFast', () => {
 
   describe('PUT /an order', () => {
     it('should update an order', (done) => {
+      const orderUpdate = {
+        food: {
+          foodname: 'rice',
+          quantity: 6,
+          price: 400.00,
+        },
+        foodstatus: 'delivered',
+      };
       request(app).put('/api/v1/orders/3')
-        .send({
-          food: ['bread'],
-          foodstatus: 'pending',
-        })
+        .send(orderUpdate)
         .expect('Content-Type', /json/)
-        .expect(200)
+        .expect(202)
         .end((err, res) => {
-          expect(res.body).to.have.property('food').with.lengthOf(1);
-          expect(res.body.foodstatus).to.equal('pending');
+          expect(res.body).to.have.property('food');
+          expect(res.body.foodstatus).to.equal('delivered');
           if (err) return done(err);
           return done();
         });
