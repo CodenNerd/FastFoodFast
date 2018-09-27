@@ -1,5 +1,7 @@
 # FastFoodFast
 
+[![Build Status](https://travis-ci.org/CodenNerd/FastFoodFast.svg?branch=master)](https://travis-ci.org/CodenNerd/FastFoodFast) [![Coverage Status](https://coveralls.io/repos/github/CodenNerd/FastFoodFast/badge.svg?branch=develop)](https://coveralls.io/github/CodenNerd/FastFoodFast?branch=develop)
+
 #Project Overview
 
 Fast-Food-Fast​ is a food delivery service app for a restaurant.
