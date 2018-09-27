@@ -1,6 +1,6 @@
 # FastFoodFast
 
-[![Build Status](https://travis-ci.org/CodenNerd/FastFoodFast.svg?branch=master)](https://travis-ci.org/CodenNerd/FastFoodFast)
+[![Build Status](https://travis-ci.org/CodenNerd/FastFoodFast.svg?branch=master)](https://travis-ci.org/CodenNerd/FastFoodFast) [![Coverage Status](https://coveralls.io/repos/github/CodenNerd/FastFoodFast/badge.svg?branch=develop)](https://coveralls.io/github/CodenNerd/FastFoodFast?branch=develop)
 
 #Project Overview
 
