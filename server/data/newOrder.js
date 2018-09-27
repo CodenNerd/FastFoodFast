@@ -58,12 +58,22 @@ const validateAs = (item, datatype) => {
   }
   return true;
 };
-
+const Validator = (item, conditions, resParam = 'res') => {
+  for (let i = 0; i < conditions.length; i += 1) {
+    const result = validateAs(item, conditions[i]);
+    if (result.status === false) {
+      return resParam.status(400).send(result.errormessage);
+    }
+  }
+  return true;
+};
 
 const newOrder = (req, res) => {
-  let error = validateAs(req.body.userId, 'integer').errormessage || validateAs(req.body.userId, 'required').errormessage;
-  if (error) return res.status(400).send(error);
-  error = validateAs(req.body.food, 'object').errormessage || validateAs(req.body.userId, 'required').errormessage;
+  Validator(req.body.userId, ['integer', 'required'], res);
+  Validator(req.body.food, ['object', 'required'], res);
+  Validator(req.body.food.foodname, ['string', 'required'], res);
+  Validator(req.body.food.quantity, ['integer', 'required'], res);
+  Validator(req.body.food.price, ['number', 'required'], res);
 
   const d = new Date();
   const order = {
