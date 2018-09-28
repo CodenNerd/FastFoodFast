@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/CodenNerd/FastFoodFast.svg?branch=develop)](https://travis-ci.org/CodenNerd/FastFoodFast) [![Coverage Status](https://coveralls.io/repos/github/CodenNerd/FastFoodFast/badge.svg)](https://coveralls.io/github/CodenNerd/FastFoodFast) [![Maintainability](https://api.codeclimate.com/v1/badges/43ea0e9162cc3149ace7/maintainability)](https://codeclimate.com/github/CodenNerd/FastFoodFast/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/43ea0e9162cc3149ace7/test_coverage)](https://codeclimate.com/github/CodenNerd/FastFoodFast/test_coverage)
 
-# Project Overview
+## Project Overview
 
 Fast-Food-Fast​ is a food delivery service app for a restaurant.
 
@@ -33,11 +33,11 @@ Create UI elements for a fast-food application and set up the node/express serve
 6. A user should be able to see a history of ordered food
 
 ## Getting Started
-# Prerequisites for installation
+### Prerequisites for installation
 - Node js
 - Express
 - Git
-# Installation
+### Installation
 - Clone this repository into your local machine:
 ```
  git clone https://github.com/CodenNerd/FastFoodFast.git
@@ -58,13 +58,13 @@ Run Mocha test with:
 npm run test
 ```
 
-### Author
+## Author
 - AbdulAzeez Atanda
 
-### License
+## License
 - None
 
-### Acknowledgement
+## Acknowledgement
  Heartfelt thanks to :
  - Andela
  - Andela Cycle 36 boot camp peers
