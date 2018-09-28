@@ -103,32 +103,7 @@ body{
         background-image: url("../images/foodshow4.jpg");			
     }
 }
-@keyframes home-slide{
-    0%,12%{
-        background-image: url("../images/foodshow5.jpg");					
-    }
-    13%,25%{
-        background-image: url("../images/foodshow6.jpeg");
-    }
-    26%,38%{
-        background-image: url("../images/foodshow7.jpeg");
-    }
-    39%,50%{
-        background-image: url("../images/foodshow8.jpg");			
-    }
-    51%,63%{
-        background-image: url("../images/foodshow9.jpeg");
-    }
-    63%,75%{
-        background-image: url("../images/foodshow10.jpeg");			
-    }
-    76%,88%{
-        background-image: url("../images/foodshow11.png");
-    }
-    89%,100%{
-        background-image: url("../images/foodshow12.jpg");			
-    }
-}
+
 #slide{
     min-height: 500px;
     background: transparent; 
