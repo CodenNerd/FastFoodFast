@@ -436,3 +436,28 @@ color: dimgray;
 .overlay .red{
     background-color: red;
 }
+
+
+/* the following orderstable styling are adapted from https://www.w3schools.com/css/tryit.asp?filename=trycss_table_fancy */
+#orderstable {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#orderstable td, #orderstable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#orderstable tr:nth-child(even){background-color: #f2f2f2;}
+
+#orderstable tr:hover {background-color: #ddd;}
+
+#orderstable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: black;
+    color: white;
+}
