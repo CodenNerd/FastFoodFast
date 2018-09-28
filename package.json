@@ -14,6 +14,7 @@
     "production": "npm run build && node bin/production",
     "server": "nodemon server/app.js --exec babel-node",
     "script": "babel-node server/app.js",
+    "cover": "istanbul cover _mocha",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
