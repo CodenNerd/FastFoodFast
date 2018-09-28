@@ -51,7 +51,8 @@ e.g npm install.
 e.g npm start
 ```
 - Use postman to test all endpoints on port 3000.
-Test
+- Test
+
 Run Mocha test with:
 ```
 npm run test
