@@ -2,11 +2,11 @@ import orders from './orders';
 import Validator from '../Validator/Validator';
 
 const newOrder = (req, res) => {
-  Validator(req.body.userId, ['integer', 'required'], res);
-  Validator(req.body.food, ['object', 'required'], res);
-  Validator(req.body.food.foodname, ['string', 'required'], res);
-  Validator(req.body.food.quantity, ['integer', 'required'], res);
-  Validator(req.body.food.price, ['number', 'required'], res);
+  Validator(req.body.userId, ['integer', 'required'], res, 'userId');
+  Validator(req.body.food, ['object', 'required'], res, 'food');
+  Validator(req.body.food.foodname, ['string', 'required'], res, 'foodname');
+  Validator(req.body.food.quantity, ['integer', 'required'], res, 'quantity');
+  Validator(req.body.food.price, ['number', 'required'], res, 'price');
 
   const d = new Date();
   const order = {

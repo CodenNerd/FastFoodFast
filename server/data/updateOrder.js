@@ -11,15 +11,15 @@ const updateOrder = (req, res) => {
     res.status(400).send('Values not provided');
   }
   if (req.body.food) {
-    if (Validator(req.body.food, ['object'], res) === true) {
-      Validator(req.body.food.foodname, ['string'], res);
-      Validator(req.body.food.quantity, ['integer'], res);
-      Validator(req.body.food.price, ['number'], res);
+    if (Validator(req.body.food, ['object'], res, 'food') === true) {
+      Validator(req.body.food.foodname, ['string'], res, 'foodname');
+      Validator(req.body.food.quantity, ['integer'], res, 'quantity');
+      Validator(req.body.food.price, ['number'], res, 'price');
     }
     thisOrder.food = req.body.food;
   }
   if (req.body.foodstatus) {
-    Validator(req.body.foodstatus, ['string'], res);
+    Validator(req.body.foodstatus, ['string'], res, 'foodstatus');
     thisOrder.foodstatus = req.body.foodstatus;
   }
 
