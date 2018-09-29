@@ -1,6 +1,5 @@
 import request from 'supertest';
 import { expect } from 'chai';
-
 import app from '../server/app';
 import orders from '../server/data/orders';
 
@@ -85,10 +84,23 @@ describe('FastFoodFast', () => {
         .expect(202)
         .end((err, res) => {
           expect(res.body).to.have.property('food');
+          expect(res.body.food).to.have.property('foodname');
+          expect(res.body.food).to.have.property('quantity');
+          expect(res.body.food).to.have.property('price');
+
           expect(res.body.foodstatus).to.equal('delivered');
           if (err) return done(err);
           return done();
         });
+    });
+  });
+
+  describe('GET /uncovered route ', () => {
+    it('should show an error object', (done) => {
+      request(app).get('/api/v2/orders')
+        .expect('Content-Type', /json/)
+        .expect(404)
+        .expect(/{"message":"Oops! That page was not found on our server. Use a different route. Error is 404"}/, done);
     });
   });
 });
