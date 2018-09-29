@@ -1,6 +1,6 @@
 # FastFoodFast
 
-[![Build Status](https://travis-ci.org/CodenNerd/FastFoodFast.svg?branch=develop)](https://travis-ci.org/CodenNerd/FastFoodFast) [![Coverage Status](https://coveralls.io/repos/github/CodenNerd/FastFoodFast/badge.svg)](https://coveralls.io/github/CodenNerd/FastFoodFast) [![Maintainability](https://api.codeclimate.com/v1/badges/43ea0e9162cc3149ace7/maintainability)](https://codeclimate.com/github/CodenNerd/FastFoodFast/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/43ea0e9162cc3149ace7/test_coverage)](https://codeclimate.com/github/CodenNerd/FastFoodFast/test_coverage)
+[![Build Status](https://travis-ci.org/CodenNerd/FastFoodFast.svg?branch=develop)](https://travis-ci.org/CodenNerd/FastFoodFast) [![Coverage Status](https://coveralls.io/repos/github/CodenNerd/FastFoodFast/badge.svg?branch=develop)](https://coveralls.io/github/CodenNerd/FastFoodFast?branch=develop) [![Maintainability](https://api.codeclimate.com/v1/badges/43ea0e9162cc3149ace7/maintainability)](https://codeclimate.com/github/CodenNerd/FastFoodFast/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/43ea0e9162cc3149ace7/test_coverage)](https://codeclimate.com/github/CodenNerd/FastFoodFast/test_coverage)
 
 ## Project Overview
 
