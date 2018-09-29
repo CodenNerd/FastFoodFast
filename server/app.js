@@ -8,8 +8,17 @@ app.use(json());
 app.use(urlencoded({ extended: false }));
 app.use('/api/v1', apiVersion1);
 
+const responses = {
+  welcome: 'Welcome to FastFoodFast',
+  notfound: 'Oops! That page was not found on our server. Use a different route. Error is 404',
+};
+
 app.get('/', (req, res) => {
-  res.send('Welcome to FastFoodFast');
+  res.send(responses.welcome);
+});
+
+app.use((req, res) => {
+  res.status(404).send(responses.notfound);
 });
 
 const port = process.env.PORT || 3000;
