@@ -141,6 +141,34 @@ describe('FastFoodFast', () => {
           .expect(400)
           .expect(/{"errormessage":"quantity should be an integer","status":false}/, done);
       });
+
+      it('should not update the order and show error', (done) => {
+        const orderUpdate = {
+          food: {
+            foodname: 'rice',
+            quantity: 6,
+            price: 'five naira',
+          },
+          foodstatus: 'delivered',
+        };
+        request(app).put('/api/v1/orders/3')
+          .send(orderUpdate)
+          .expect('Content-Type', /json/)
+          .expect(400)
+          .expect(/{"errormessage":"price should be a number","status":false}/, done);
+      });
+
+      it('should not update the order and show error', (done) => {
+        const orderUpdate = {
+          food: 'foodname',
+          foodstatus: 'delivered',
+        };
+        request(app).put('/api/v1/orders/3')
+          .send(orderUpdate)
+          .expect('Content-Type', /json/)
+          .expect(400)
+          .expect(/{"errormessage":"food should be an object","status":false}/, done);
+      });
     });
   });
 

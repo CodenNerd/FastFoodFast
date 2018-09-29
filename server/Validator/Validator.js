@@ -60,7 +60,8 @@ const Validator = (item, conditions, resParam = 'res', itemname) => {
   for (let i = 0; i < conditions.length; i += 1) {
     const result = validateAs(item, conditions[i], itemname);
     if (result.status === false) {
-      return resParam.status(400).send(result);
+      if (resParam === 'none') return false;
+      return resParam.status(400).json(result);
     }
   }
   return true;

@@ -19,7 +19,7 @@ const newOrder = (req, res) => {
   };
 
   orders.push(order);
-  return res.status(201).json(order); // am I supposed to redirect here?
+  return res.status(201).json(order);
 };
 
 
