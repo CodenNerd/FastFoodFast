@@ -62,7 +62,7 @@ npm run test
 - AbdulAzeez Atanda
 
 ## License
-- None
+- This project is licensed under the MIT Public License - see the LICENSE file for details
 
 ## Acknowledgement
  Heartfelt thanks to :
