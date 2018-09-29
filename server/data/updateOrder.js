@@ -1,14 +1,15 @@
 import orders from './orders';
 import Validator from '../Validator/Validator';
+import responses from './responses';
 
 const updateOrder = (req, res) => {
   // Check that the request exists
   const thisOrder = orders.find(o => o.orderId === Number(req.params.id));
-  if (!thisOrder) return res.status(404).send('That particular order was not found on our server');
+  if (!thisOrder) return res.status(404).send(responses.ordernotfound);
 
   // Validation of input
   if (req.body.food === undefined && req.body.foodstatus === undefined) {
-    res.status(400).send('Values not provided');
+    res.status(400).send(responses.novalues);
   }
   if (req.body.food) {
     if (Validator(req.body.food, ['object'], res, 'food') === true) {
