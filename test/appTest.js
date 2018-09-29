@@ -109,8 +109,8 @@ describe('FastFoodFast', () => {
         .expect(/{"message":"That particular order was not found on our server"}/, done);
     });
 
-    describe('PUT /an order', () => {
-      it('should update an order', (done) => {
+    describe('PUT /an order with bad data', () => {
+      it('should not update the order and show error', (done) => {
         const orderUpdate = {
           food: {
             foodname: 7,
@@ -124,6 +124,22 @@ describe('FastFoodFast', () => {
           .expect('Content-Type', /json/)
           .expect(400)
           .expect(/{"errormessage":"foodname should be a string","status":false}/, done);
+      });
+
+      it('should not update the order and show error', (done) => {
+        const orderUpdate = {
+          food: {
+            foodname: 'rice',
+            quantity: 'six',
+            price: 400.00,
+          },
+          foodstatus: 'delivered',
+        };
+        request(app).put('/api/v1/orders/3')
+          .send(orderUpdate)
+          .expect('Content-Type', /json/)
+          .expect(400)
+          .expect(/{"errormessage":"quantity should be an integer","status":false}/, done);
       });
     });
   });
