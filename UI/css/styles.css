@@ -316,15 +316,12 @@ color: dimgray;
     padding: 30px 3%;
     background-color: white;
     width: 30%;
-    border-top: 5px solid dimgrey;
-    border-bottom: 5px solid dimgrey;
-    border-right: 1px dotted darkgoldenrod;
-    border-left: 1px dotted darkgoldenrod;
     font-weight: bolder;
     color: dimgray;
     margin: 150px auto; 
     text-align: left; 
     opacity: 0.95;
+    border-radius: 10px;
 }
 .user-forms label{
     display: block;
@@ -334,6 +331,14 @@ color: dimgray;
     margin-bottom: 20px;
     transition: 2s;
     border: 1px solid grey;
+    height: 40px;
+    font-size: 15px;
+    color: grey;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: italic;    
+    border:0px;
+    border-bottom: 2px solid grey;
+    padding-bottom: 0px;
 } 
 .user-forms button{
     margin: 5px;
@@ -355,7 +360,7 @@ color: dimgray;
 }
 .user-forms  input:focus{
     outline: none;
-    border: 1px solid darkolivegreen;
+    border-bottom: 2px solid rgb(2, 71, 88);
 }
 #login-button{
     background-color: rgb(2, 71, 88);
@@ -438,7 +443,7 @@ color: dimgray;
 }
 
 
-/* the following orderstable styling are adapted from https://www.w3schools.com/css/tryit.asp?filename=trycss_table_fancy */
+/* the following orders table styling are adapted from https://www.w3schools.com/css/tryit.asp?filename=trycss_table_fancy */
 #orderstable {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
@@ -461,3 +466,5 @@ color: dimgray;
     background-color: black;
     color: white;
 }
+/*---------------------reference ends here (modified) ------------------*/ 
+
