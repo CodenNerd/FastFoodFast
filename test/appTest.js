@@ -93,6 +93,15 @@ describe('FastFoodFast', () => {
           return done();
         });
     });
+
+    it('should not update an order if values are not provided', (done) => {
+      const orderUpdate = { };
+      request(app).put('/api/v1/orders/3')
+        .send(orderUpdate)
+        .expect('Content-Type', /json/)
+        .expect(400)
+        .expect(/{"message":"Values not provided"}/, done);
+    });
   });
 
   describe('GET /uncovered route ', () => {
