@@ -1,9 +1,9 @@
-const validateAs = (item, datatype) => {
+const validateAs = (item, datatype, itemname) => {
   switch (datatype) {
     case 'required':
       if (!item) {
         return {
-          errormessage: `${item} is required`,
+          errormessage: `${itemname} is required`,
           status: false,
         };
       }
@@ -11,7 +11,7 @@ const validateAs = (item, datatype) => {
     case 'number':
       if (typeof item !== 'number') {
         return {
-          errormessage: `${item} should be a number`,
+          errormessage: `${itemname} should be a number`,
           status: false,
         };
       }
@@ -19,7 +19,7 @@ const validateAs = (item, datatype) => {
     case 'integer':
       if (item !== Math.floor(item) || item !== Math.ceil(item)) {
         return {
-          errormessage: `${item} should be an integer`,
+          errormessage: `${itemname} should be an integer`,
           status: false,
         };
       }
@@ -27,7 +27,7 @@ const validateAs = (item, datatype) => {
     case 'array':
       if (!item.isArray()) {
         return {
-          errormessage: `${item} should be an array`,
+          errormessage: `${itemname} should be an array`,
           status: false,
         };
       }
@@ -35,7 +35,7 @@ const validateAs = (item, datatype) => {
     case 'string':
       if (typeof item !== 'string') {
         return {
-          errormessage: `${item} should be a string`,
+          errormessage: `${itemname} should be a string`,
           status: false,
         };
       }
@@ -43,22 +43,22 @@ const validateAs = (item, datatype) => {
     case 'object':
       if (typeof item !== 'object') {
         return {
-          errormessage: `${item} should be an object`,
+          errormessage: `${itemname} should be an object`,
           status: false,
         };
       }
       break;
     default:
       return {
-        errormessage: `cannot resolve schema of ${item}`,
+        errormessage: `cannot resolve schema of ${itemname}`,
         status: false,
       };
   }
   return true;
 };
-const Validator = (item, conditions, resParam = 'res') => {
+const Validator = (item, conditions, resParam = 'res', itemname) => {
   for (let i = 0; i < conditions.length; i += 1) {
-    const result = validateAs(item, conditions[i]);
+    const result = validateAs(item, conditions[i], itemname);
     if (result.status === false) {
       return resParam.status(400).send(result.errormessage);
     }
