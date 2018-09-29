@@ -5,7 +5,7 @@ import responses from './responses';
 const updateOrder = (req, res) => {
   // Check that the request exists
   const thisOrder = orders.find(o => o.orderId === Number(req.params.id));
-  if (!thisOrder) return res.status(404).send('That particular order was not found on our server');
+  if (!thisOrder) return res.status(404).send(responses.ordernotfound);
 
   // Validation of input
   if (req.body.food === undefined && req.body.foodstatus === undefined) {

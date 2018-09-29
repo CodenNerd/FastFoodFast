@@ -102,6 +102,13 @@ describe('FastFoodFast', () => {
         .expect(400)
         .expect(/{"message":"Values not provided"}/, done);
     });
+
+    it('should not post an order if the specific order is missing', (done) => {
+      request(app).put('/api/v1/orders/9')
+        .expect('Content-Type', /json/)
+        .expect(404)
+        .expect(/{"message":"That particular order was not found on our server"}/, done);
+    });
   });
 
   describe('GET /uncovered route ', () => {
