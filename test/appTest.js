@@ -5,7 +5,7 @@ import app from '../server/app';
 import orders from '../server/data/orders';
 
 describe('FastFoodFast', () => {
-  describe('homepage', () => {
+  describe('GET /', () => {
     it('welcomes the user', (done) => {
       request(app).get('/')
         .expect(200)
@@ -38,9 +38,9 @@ describe('FastFoodFast', () => {
         });
     });
 
-    it('should not get an order', (done) => {
+    it('should not get an order if the order is not existing', (done) => {
       request(app).get('/api/v1/orders/9')
-        .expect('Content-Type', /text\/html/)
+        .expect('Content-Type', /json/)
         .expect(404)
         .expect(/That particular order was not found/, done);
     });
