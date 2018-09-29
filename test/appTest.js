@@ -87,7 +87,6 @@ describe('FastFoodFast', () => {
           expect(res.body.food).to.have.property('foodname');
           expect(res.body.food).to.have.property('quantity');
           expect(res.body.food).to.have.property('price');
-
           expect(res.body.foodstatus).to.equal('delivered');
           if (err) return done(err);
           return done();
@@ -108,6 +107,24 @@ describe('FastFoodFast', () => {
         .expect('Content-Type', /json/)
         .expect(404)
         .expect(/{"message":"That particular order was not found on our server"}/, done);
+    });
+
+    describe('PUT /an order', () => {
+      it('should update an order', (done) => {
+        const orderUpdate = {
+          food: {
+            foodname: 7,
+            quantity: 6,
+            price: 400.00,
+          },
+          foodstatus: 'delivered',
+        };
+        request(app).put('/api/v1/orders/3')
+          .send(orderUpdate)
+          .expect('Content-Type', /json/)
+          .expect(400)
+          .expect(/{"errormessage":"foodname should be a string","status":false}/, done);
+      });
     });
   });
 
