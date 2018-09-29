@@ -17,6 +17,7 @@ Create UI elements for a fast-food application and set up the node/express serve
 - Mocha <small>Unit Testing Framework</small>
 - PostgreSQL <small> Database </small>
 - TravisCI <small> Continuous Integration </small>
+- Coveralls <small> Coverage Status</small>
 - Pivotal Tracker <small> Project Management Board </small>
 - GitHub <small> Track changes over time in the project </small>
 
