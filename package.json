@@ -29,11 +29,15 @@
   "homepage": "https://github.com/CodenNerd/FastFoodFast#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "chai": "^4.1.2",
+    "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "joi": "^13.6.0",
-    "chai": "^4.1.2",
+    "make-runnable": "^1.3.6",
+    "mocha": "^5.2.0",
+    "pg": "^7.4.3",
     "supertest": "^3.3.0",
-    "mocha": "^5.2.0"
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
