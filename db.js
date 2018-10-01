@@ -14,13 +14,13 @@ pool.on('connect', () => {
 const createTables = () => {
   const queryText = `CREATE TABLE IF NOT EXISTS
       orders(
-        id UUID PRIMARY KEY,
+        id serial PRIMARY KEY,
         foodname VARCHAR(20) NOT NULL,
         quantity SMALLINT NOT NULL,
         price NUMERIC NOT NULL,
         foodstatus VARCHAR(20) NOT NULL,
         owner_id INT NOT NULL,
-        date_created TIMESTAMP,
+        date_created TIMESTAMP NOT NULL,
         date_modified TIMESTAMP
       )`;
 
