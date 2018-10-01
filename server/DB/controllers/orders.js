@@ -27,14 +27,9 @@ const Order = {
       return res.status(400).send(error);
     }
   },
-  /**
-   * Get All Reflection
-   * @param {object} req
-   * @param {object} res
-   * @returns {object} reflections array
-   */
+
   async getAll(req, res) {
-    const findAllQuery = 'SELECT * FROM reflections';
+    const findAllQuery = 'SELECT * FROM orders';
     try {
       const { rows, rowCount } = await db.query(findAllQuery);
       return res.status(200).send({ rows, rowCount });
@@ -42,14 +37,9 @@ const Order = {
       return res.status(400).send(error);
     }
   },
-  /**
-   * Get A Reflection
-   * @param {object} req
-   * @param {object} res
-   * @returns {object} reflection object
-   */
+
   async getOne(req, res) {
-    const text = 'SELECT * FROM reflections WHERE id = $1';
+    const text = 'SELECT * FROM orders WHERE id = $1';
     try {
       const { rows } = await db.query(text, [req.params.id]);
       if (!rows[0]) {
@@ -60,15 +50,10 @@ const Order = {
       return res.status(400).send(error);
     }
   },
-  /**
-   * Update A Reflection
-   * @param {object} req
-   * @param {object} res
-   * @returns {object} updated reflection
-   */
+
   async update(req, res) {
-    const findOneQuery = 'SELECT * FROM reflections WHERE id=$1';
-    const updateOneQuery = `UPDATE reflections
+    const findOneQuery = 'SELECT * FROM orders WHERE id=$1';
+    const updateOneQuery = `UPDATE orders
       SET success=$1,low_point=$2,take_away=$3,modified_date=$4
       WHERE id=$5 returning *`;
     try {
@@ -89,14 +74,9 @@ const Order = {
       return res.status(400).send(err);
     }
   },
-  /**
-   * Delete A Reflection
-   * @param {object} req
-   * @param {object} res
-   * @returns {void} return statuc code 204
-   */
+
   async delete(req, res) {
-    const deleteQuery = 'DELETE FROM reflections WHERE id=$1 returning *';
+    const deleteQuery = 'DELETE FROM orders WHERE id=$1 returning *';
     try {
       const { rows } = await db.query(deleteQuery, [req.params.id]);
       if (!rows[0]) {
@@ -109,4 +89,4 @@ const Order = {
   },
 };
 
-export default Reflection;
+export default Order;
