@@ -1,27 +1,31 @@
 import db from '../db';
 
-const updateOrder = (req, res) => {
-  const findOneQuery = 'SELECT * FROM orders WHERE id=$1';
-  const updateOneQuery = `UPDATE orders
-      SET success=$1,low_point=$2,take_away=$3,modified_date=$4
-      WHERE id=$5 returning *`;
-  try {
-    const { rows } = db.query(findOneQuery, [req.params.id]);
-    if (!rows[0]) {
-      return res.status(404).send({ message: 'that order was not found' });
+const updateOrder = {
+  async updateOrder(req, res) {
+    const findOneQuery = 'SELECT * FROM orders WHERE id=$1';
+    const updateOneQuery = `UPDATE orders
+      SET foodname=$1,quantity=$2,price=$3,foodstatus=$4,owner_id=$5,date_modified=$6
+      WHERE id=$7 returning *`;
+    try {
+      const { rows } = await db.query(findOneQuery, [req.params.id]);
+      if (!rows[0]) {
+        return res.status(404).send({ message: 'that order was not found' });
+      }
+      const values = [
+        req.body.foodname || rows[0].foodname,
+        req.body.quantity || rows[0].quantity,
+        req.body.price || rows[0].price,
+        req.body.foodstatus || rows[0].foodstatus,
+        req.body.owner_id || rows[0].owner_id,
+        new Date(),
+        req.params.id,
+      ];
+      const response = await db.query(updateOneQuery, values);
+      return res.status(200).send(response.rows[0]);
+    } catch (err) {
+      return res.status(400).send(err);
     }
-    const values = [
-      req.body.success || rows[0].success,
-      req.body.low_point || rows[0].low_point,
-      req.body.take_away || rows[0].take_away,
-      new Date(),
-      req.params.id,
-    ];
-    const response = db.query(updateOneQuery, values);
-    return res.status(200).send(response.rows[0]);
-  } catch (err) {
-    return res.status(400).send(err);
-  }
+  },
 };
 
-export default updateOrder;
+export default updateOrder.updateOrder;
