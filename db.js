@@ -21,13 +21,14 @@ const createOrdersTable = () => {
         foodstatus VARCHAR(20) NOT NULL,
         owner_id INT NOT NULL,
         date_created TIMESTAMP NOT NULL,
-        date_modified TIMESTAMP
+        date_modified TIMESTAMP,
         FOREIGN KEY (owner_id) REFERENCES users (id) ON DELETE CASCADE
       )`;
 
   pool.query(queryText)
     .then((res) => {
       console.log(res);
+      console.log('çreated');
       pool.end();
     })
     .catch((err) => {
@@ -37,7 +38,7 @@ const createOrdersTable = () => {
 };
 
 const dropOrdersTable = () => {
-  const queryText = 'DROP TABLE IF EXISTS orders';
+  const queryText = 'DROP TABLE IF EXISTS orders returning *';
   pool.query(queryText)
     .then((res) => {
       console.log(res);
@@ -88,9 +89,9 @@ const createMenuTable = () => {
   const queryText = `CREATE TABLE IF NOT EXISTS
       menu(
         id serial PRIMARY KEY,
-        foodname VARCHAR(20) NOT NULL,
+        foodname VARCHAR(20) UNIQUE NOT NULL,
         price NUMERIC NOT NULL,
-        date_created TIMESTAMP NOT NULL,
+        date_created TIMESTAMP NOT NULL
       )`;
 
   pool.query(queryText)
