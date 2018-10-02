@@ -3,7 +3,6 @@ import db from '../db';
 
 const orderHistory = {
   async orderHistory(req, res) {
-    req.params.user_id = req.user.id;
     const findAllQuery = 'SELECT * FROM orders WHERE owner_id = $1';
     try {
       const { rows, rowCount } = await db.query(findAllQuery, [req.user.id]);
