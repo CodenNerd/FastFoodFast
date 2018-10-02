@@ -83,12 +83,48 @@ const dropUsersTable = () => {
       pool.end();
     });
 };
+
+const createMenuTable = () => {
+  const queryText = `CREATE TABLE IF NOT EXISTS
+      menu(
+        id serial PRIMARY KEY,
+        foodname VARCHAR(20) NOT NULL,
+        price NUMERIC NOT NULL,
+        date_created TIMESTAMP NOT NULL,
+      )`;
+
+  pool.query(queryText)
+    .then((res) => {
+      console.log(res);
+      pool.end();
+    })
+    .catch((err) => {
+      console.log(err);
+      pool.end();
+    });
+};
+
+const dropMenuTable = () => {
+  const queryText = 'DROP TABLE IF EXISTS users returning *';
+  pool.query(queryText)
+    .then((res) => {
+      console.log(res);
+      pool.end();
+    })
+    .catch((err) => {
+      console.log(err);
+      pool.end();
+    });
+};
+
 const createAllTables = () => {
+  createMenuTable();
   createUsersTable();
   createOrdersTable();
 };
 
 const dropAllTables = () => {
+  dropMenuTable();
   dropUsersTable();
   dropOrdersTable();
 };
@@ -98,6 +134,8 @@ pool.on('remove', () => {
 });
 
 module.exports = {
+  createMenuTable,
+  dropMenuTable,
   createAllTables,
   dropAllTables,
   createUsersTable,
