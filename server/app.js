@@ -1,5 +1,6 @@
 import express from 'express';
 import { json, urlencoded } from 'body-parser';
+import 'babel-polyfill';
 import apiVersion1 from './router/api1';
 import responses from './data/responses';
 
