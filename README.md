@@ -66,6 +66,16 @@ npm run test
 ## License
 - This project is licensed under the MIT Public License - see the LICENSE file for details
 
+## References
+- The code for API route in this project follows guidelines from Evan M. Hahn's book called Express in Action  https://hackerstribe.com/wp-content/uploads/2016/04/Node.js-Express-in-Action.pdf
+
+- The code for persisting data with JsObjects follows steps from Mosh Hamedani's video tutorial https://www.youtube.com/watch?v=pKd0Rpw7O48
+
+- The code for database use in this project follows the step by step tutorial guideliness by Olawale Aladeusi https://www.codementor.io/olawalealadeusi896/building-a-simple-api-with-nodejs-expressjs-postgresql-db-and-jwt-3-mke10c5c5?utm_content=posts&utm_source=sendgrid&utm_medium=email&utm_term=post-mke10c5c5&utm_campaign=newsletter20180905 
+
+- These implementations are however not without some heavy refactoring from my end. Also, every line of these code is well understood by me.
+
+
 ## Acknowledgement
  Heartfelt thanks to :
  - Andela
