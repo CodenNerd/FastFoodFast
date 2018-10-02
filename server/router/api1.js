@@ -21,11 +21,11 @@ const updateOrder = process.env.TYPE === 'db' ? dbUpdateOrder : jsUpdateOrder;
 const api = Router();
 api.use(json());
 
-api.post('/auth/login', Auth.verifyToken, signin);
+api.post('/auth/login', signin);
 api.post('/auth/signup', signup);
-api.get('/orders', orders);
-api.get('/orders/:id', order);
-api.post('/orders', newOrder);
-api.put('/orders/:id', updateOrder);
+api.get('/orders', Auth, orders);
+api.get('/orders/:id', Auth, order);
+api.post('/orders', Auth, newOrder);
+api.put('/orders/:id', Auth, updateOrder);
 
 export default api;
