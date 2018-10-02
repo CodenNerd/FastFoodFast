@@ -12,6 +12,7 @@ import Auth from '../DB/middleware/Auth';
 import signin from '../DB/controllers/signin';
 import signup from '../DB/controllers/signup';
 import orderHistory from '../DB/controllers/orderHistory';
+import newMenu from '../DB/controllers/newMenu';
 
 dotenv.config();
 const order = process.env.TYPE === 'db' ? dbOrder : jsOrder;
@@ -27,6 +28,7 @@ api.post('/auth/signup', signup);
 api.get('/orders', Auth, orders);
 api.get('/orders/:id', Auth, order);
 api.get('/users/:user_id/orders', Auth, orderHistory);
+api.post('/menu', newMenu);
 api.post('/orders', Auth, newOrder);
 api.put('/orders/:id', Auth, updateOrder);
 
