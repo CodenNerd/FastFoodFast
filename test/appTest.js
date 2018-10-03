@@ -235,6 +235,29 @@ describe('FastFoodFast', () => {
     });
   });
 
+  describe('POST /orders', () => {
+    it('should create a new order', (done) => {
+      const newOrder = {
+        foodname: 'amala',
+        quantity: 4,
+        price: 3,
+      };
+      request(app).post('/api/v1/orders')
+        .set('x-access-token', authToken)
+        .send(newOrder)
+        .expect('Content-Type', /json/)
+        .expect(201)
+        .end((err, res) => {
+          expect(res.body).to.have.property('foodname');
+          expect(res.body).to.have.property('owner_id');
+
+
+          if (err) return done(err);
+          return done();
+        });
+    });
+  });
+
   describe('GET /orders ', () => {
     it('should get all orders', (done) => {
       request(app).get('/api/v1/orders')
@@ -252,11 +275,12 @@ describe('FastFoodFast', () => {
   describe('GET /order', () => {
     it('should get a single order', (done) => {
       request(app).get('/api/v1/orders/3')
+        .set('x-access-token', authToken)
         .expect('Content-Type', /json/)
         .expect(200)
         .end((err, res) => {
-          expect(res.body).to.have.property('food');
-          expect(res.body.food).to.be.a('object');
+          expect(res.body).to.have.property('rows');
+          expect(res.body).to.have.property('rowCount');
           if (err) return done(err);
           return done();
         });
@@ -269,29 +293,7 @@ describe('FastFoodFast', () => {
         .expect(/That particular order was not found/, done);
     });
   });
-  describe('POST /orders', () => {
-    it('should create a new order', (done) => {
-      const newOrder = {
-        userId: 5,
-        food: {
-          foodname: 'amala',
-          quantity: 4,
-          price: 3,
-        },
-      };
-      request(app).post('/api/v1/orders')
-        .send(newOrder)
-        .expect('Content-Type', /json/)
-        .expect(201)
-        .end((err, res) => {
-          expect(res.body).to.have.property('food');
-          expect(res.body).to.have.property('userId');
 
-          if (err) return done(err);
-          return done();
-        });
-    });
-  });
 
   describe('PUT /an order', () => {
     it('should update an order', (done) => {

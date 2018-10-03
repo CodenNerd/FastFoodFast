@@ -12,7 +12,7 @@ const newOrder = {
       req.body.foodname,
       req.body.quantity,
       req.body.price,
-      req.body.foodstatus,
+      'New',
       req.user.id,
       new Date(),
       new Date(),
