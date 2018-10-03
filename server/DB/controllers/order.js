@@ -2,9 +2,9 @@ import db from '../db';
 
 const order = {
   async order(req, res) {
-    const text = 'SELECT * FROM orders WHERE id = $1 AND owner_id = $2';
+    const text = 'SELECT * FROM orders WHERE id = $1';
     try {
-      const { rows } = await db.query(text, [parseInt(req.params.id, 10), req.user.id]);
+      const { rows } = await db.query(text, [parseInt(req.params.id, 10)]);
       if (!rows[0]) {
         return res.status(404).send({ message: 'this order was not found on our server' });
       }

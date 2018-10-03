@@ -27,7 +27,10 @@ const signup = {
     try {
       const { rows } = await db.query(createQuery, values);
       const token = Helper.generateToken(rows[0].id);
-      return res.status(201).send({ token });
+      return res.status(201).send({
+        token,
+        message: 'Congrats! Your account is ready',
+      });
     } catch (error) {
       if (error.routine === '_bt_check_unique') {
         return res.status(400).send({ message: 'A user with that email already exists' });

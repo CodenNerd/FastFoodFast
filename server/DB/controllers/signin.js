@@ -19,7 +19,10 @@ const signin = {
         return res.status(400).send({ message: 'Your password is incorrect' });
       }
       const token = Helper.generateToken(rows[0].id);
-      return res.status(200).send({ token });
+      return res.status(200).send({
+        token,
+        message: 'You are logged in',
+      });
     } catch (error) {
       return res.status(400).send(error);
     }

@@ -183,8 +183,11 @@ if (process.env.TYPE !== 'db') {
     });
   });
 }
+// JS Objects Tests End Here
 
+// DB Tests Start Here
 describe('FastFoodFast', () => {
+  let authToken;
   describe('GET /', () => {
     it('welcomes the user', (done) => {
       request(app).get('/')
@@ -192,13 +195,52 @@ describe('FastFoodFast', () => {
         .expect(/Welcome to FastFoodFast/, done);
     });
   });
+
+  describe('POST /auth/signup', () => {
+    it('should sign up', (done) => {
+      const signupdetails = {
+        fullname: 'AbdulAzeez',
+        email: 'this@test.com',
+        password: 'test',
+      };
+      request(app).post('/api/v1/auth/signup')
+        .send(signupdetails)
+        .expect('Content-Type', /json/)
+        .expect(201)
+        .end((err, res) => {
+          authToken = res.body.token;
+          expect(res.body.message).to.equal('Congrats! Your account is ready');
+          if (err) return done(err);
+          return done();
+        });
+    });
+  });
+
+  describe('POST /auth/login', () => {
+    it('should login', (done) => {
+      const logindetails = {
+        email: 'this@test.com',
+        password: 'test',
+      };
+      request(app).post('/api/v1/auth/signup')
+        .send(logindetails)
+        .expect('Content-Type', /json/)
+        .expect(201)
+        .end((err, res) => {
+          authToken = res.body.token;
+
+          if (err) return done(err);
+          return done();
+        });
+    });
+  });
+
   describe('GET /orders ', () => {
     it('should get all orders', (done) => {
       request(app).get('/api/v1/orders')
         .expect('Content-Type', /json/)
         .expect(200)
         .end((err, res) => {
-          expect(orders.length).to.equal(res.body.length).to.equal(4);
           expect(res.body).to.be.a('array');
           if (err) return done(err);
           return done();
