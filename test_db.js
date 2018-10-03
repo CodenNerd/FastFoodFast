@@ -3,9 +3,11 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
+
 const pool = new Pool({
   connectionString: process.env.TEST_URL,
 });
+
 
 pool.on('connect', () => {
   console.log('connected to db...');
@@ -38,7 +40,8 @@ const createOrdersTable = () => {
 };
 
 const dropOrdersTable = () => {
-  const queryText = 'DROP TABLE IF EXISTS orders returning *';
+  const queryText = `DROP TABLE IF EXISTS 
+  orders returning *`;
   pool.query(queryText)
     .then((res) => {
       console.log(res);
@@ -63,7 +66,7 @@ const createUsersTable = () => {
 
   pool.query(queryText)
     .then((res) => {
-      console.log(res);
+      console.log('users table created', res);
       pool.end();
     })
     .catch((err) => {
@@ -73,10 +76,11 @@ const createUsersTable = () => {
 };
 
 const dropUsersTable = () => {
-  const queryText = 'DROP TABLE IF EXISTS users returning *';
+  const queryText = `DROP TABLE IF EXISTS
+   users`;
   pool.query(queryText)
     .then((res) => {
-      console.log(res);
+      console.log('users table dropped', res);
       pool.end();
     })
     .catch((err) => {
@@ -106,7 +110,8 @@ const createMenuTable = () => {
 };
 
 const dropMenuTable = () => {
-  const queryText = 'DROP TABLE IF EXISTS users returning *';
+  const queryText = `DROP TABLE IF EXISTS
+   menu returning *`;
   pool.query(queryText)
     .then((res) => {
       console.log(res);

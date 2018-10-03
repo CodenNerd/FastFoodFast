@@ -200,7 +200,7 @@ describe('FastFoodFast', () => {
     it('should sign up', (done) => {
       const signupdetails = {
         fullname: 'AbdulAzeez',
-        email: 'this@test.com',
+        email: `${Math.random()}this@test.com`,
         password: 'test',
       };
       request(app).post('/api/v1/auth/signup')
@@ -222,13 +222,13 @@ describe('FastFoodFast', () => {
         email: 'this@test.com',
         password: 'test',
       };
-      request(app).post('/api/v1/auth/signup')
+      request(app).post('/api/v1/auth/login')
         .send(logindetails)
         .expect('Content-Type', /json/)
-        .expect(201)
+        .expect(200)
         .end((err, res) => {
           authToken = res.body.token;
-
+          expect(res.body.message).to.equal('You are logged in');
           if (err) return done(err);
           return done();
         });
@@ -238,10 +238,12 @@ describe('FastFoodFast', () => {
   describe('GET /orders ', () => {
     it('should get all orders', (done) => {
       request(app).get('/api/v1/orders')
+        .set('x-access-token', authToken)
         .expect('Content-Type', /json/)
         .expect(200)
         .end((err, res) => {
-          expect(res.body).to.be.a('array');
+         // expect(res.body).to.have.property('rows');
+         // expect(res.body).to.have.property('rowCount');
           if (err) return done(err);
           return done();
         });
