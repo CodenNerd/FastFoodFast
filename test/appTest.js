@@ -242,8 +242,8 @@ describe('FastFoodFast', () => {
         .expect('Content-Type', /json/)
         .expect(200)
         .end((err, res) => {
-         // expect(res.body).to.have.property('rows');
-         // expect(res.body).to.have.property('rowCount');
+          expect(res.body).to.have.property('rows');
+          expect(res.body).to.have.property('rowCount');
           if (err) return done(err);
           return done();
         });
