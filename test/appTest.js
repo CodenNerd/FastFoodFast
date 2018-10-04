@@ -303,14 +303,11 @@ describe('FastFoodFast', () => {
   describe('PUT /an order', () => {
     it('should update an order', (done) => {
       const orderUpdate = {
-          foodname: 'rice',
-          quantity: 6,
-          price: 400,
         foodstatus: 'delivered',
       };
       request(app).put('/api/v1/orders/3')
-      .set('x-access-token', authToken)
-      .send(orderUpdate)
+        .set('x-access-token', authToken)
+        .send(orderUpdate)
         .expect('Content-Type', /json/)
         .expect(202)
         .end((err, res) => {
@@ -324,7 +321,9 @@ describe('FastFoodFast', () => {
     });
 
     it('should not update an order if token is not provided', (done) => {
-      const orderUpdate = { };
+      const orderUpdate = {
+        foodstatus: 'delivered',
+      };
       request(app).put('/api/v1/orders/3')
         .send(orderUpdate)
         .expect('Content-Type', /json/)
@@ -334,7 +333,10 @@ describe('FastFoodFast', () => {
 
     it('should not update an order if the specific order is missing', (done) => {
       request(app).put('/api/v1/orders/9000')
-      .set('x-access-token', authToken)
+        .set('x-access-token', authToken)
+        .send({
+          foodstatus: 'delivered',
+        })
         .expect('Content-Type', /json/)
         .expect(404)
         .expect(/{"message":"that order was not found"}/, done);
@@ -343,62 +345,14 @@ describe('FastFoodFast', () => {
     describe('PUT /an order with bad data', () => {
       it('should not update the order and show error', (done) => {
         const orderUpdate = {
-          food: {
-            foodname: 7,
-            quantity: 6,
-            price: 400.00,
-          },
-          foodstatus: 'delivered',
+          foodstatus: 80,
         };
         request(app).put('/api/v1/orders/3')
+          .set('x-access-token', authToken)
           .send(orderUpdate)
           .expect('Content-Type', /json/)
           .expect(400)
-          .expect(/{"errormessage":"foodname should be a string","status":false}/, done);
-      });
-
-      it('should not update the order and show error', (done) => {
-        const orderUpdate = {
-          food: {
-            foodname: 'rice',
-            quantity: 'six',
-            price: 400.00,
-          },
-          foodstatus: 'delivered',
-        };
-        request(app).put('/api/v1/orders/3')
-          .send(orderUpdate)
-          .expect('Content-Type', /json/)
-          .expect(400)
-          .expect(/{"errormessage":"quantity should be an integer","status":false}/, done);
-      });
-
-      it('should not update the order and show error', (done) => {
-        const orderUpdate = {
-          food: {
-            foodname: 'rice',
-            quantity: 6,
-            price: 'five naira',
-          },
-          foodstatus: 'delivered',
-        };
-        request(app).put('/api/v1/orders/3')
-          .send(orderUpdate)
-          .expect('Content-Type', /json/)
-          .expect(400)
-          .expect(/{"errormessage":"price should be a number","status":false}/, done);
-      });
-
-      it('should not update the order and show error', (done) => {
-        const orderUpdate = {
-          food: 'foodname',
-          foodstatus: 'delivered',
-        };
-        request(app).put('/api/v1/orders/3')
-          .send(orderUpdate)
-          .expect('Content-Type', /json/)
-          .expect(400)
-          .expect(/{"errormessage":"food should be an object","status":false}/, done);
+          .expect(/{"errormessage":"foodstatus should be a string","status":false}/, done);
       });
     });
   });
