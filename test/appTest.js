@@ -291,10 +291,11 @@ describe('FastFoodFast', () => {
     });
 
     it('should not get an order if the order is not existing', (done) => {
-      request(app).get('/api/v1/orders/9')
+      request(app).get('/api/v1/orders/9000')
+        .set('x-access-token', authToken)
         .expect('Content-Type', /json/)
         .expect(404)
-        .expect(/{ message: 'this order was not found on our server' }/, done);
+        .expect(/{"message":"this order was not found on our server"}/, done);
     });
   });
 
@@ -302,42 +303,41 @@ describe('FastFoodFast', () => {
   describe('PUT /an order', () => {
     it('should update an order', (done) => {
       const orderUpdate = {
-        food: {
           foodname: 'rice',
           quantity: 6,
-          price: 400.00,
-        },
+          price: 400,
         foodstatus: 'delivered',
       };
       request(app).put('/api/v1/orders/3')
-        .send(orderUpdate)
+      .set('x-access-token', authToken)
+      .send(orderUpdate)
         .expect('Content-Type', /json/)
         .expect(202)
         .end((err, res) => {
-          expect(res.body).to.have.property('food');
-          expect(res.body.food).to.have.property('foodname');
-          expect(res.body.food).to.have.property('quantity');
-          expect(res.body.food).to.have.property('price');
+          expect(res.body).to.have.property('foodname');
+          expect(res.body.quantity).to.equal(6);
+          expect(res.body.price).to.equal('400');
           expect(res.body.foodstatus).to.equal('delivered');
           if (err) return done(err);
           return done();
         });
     });
 
-    it('should not update an order if values are not provided', (done) => {
+    it('should not update an order if token is not provided', (done) => {
       const orderUpdate = { };
       request(app).put('/api/v1/orders/3')
         .send(orderUpdate)
         .expect('Content-Type', /json/)
         .expect(400)
-        .expect(/{"message":"Values not provided"}/, done);
+        .expect(/{"message":"Token is not provided"}/, done);
     });
 
-    it('should not post an order if the specific order is missing', (done) => {
-      request(app).put('/api/v1/orders/9')
+    it('should not update an order if the specific order is missing', (done) => {
+      request(app).put('/api/v1/orders/9000')
+      .set('x-access-token', authToken)
         .expect('Content-Type', /json/)
         .expect(404)
-        .expect(/{"message":"That particular order was not found on our server"}/, done);
+        .expect(/{"message":"that order was not found"}/, done);
     });
 
     describe('PUT /an order with bad data', () => {

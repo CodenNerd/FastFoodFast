@@ -21,7 +21,7 @@ const updateOrder = {
         req.params.id,
       ];
       const response = await db.query(updateOneQuery, values);
-      return res.status(200).send(response.rows[0]);
+      return res.status(202).send(response.rows[0]);
     } catch (err) {
       return res.status(400).send(err);
     }
