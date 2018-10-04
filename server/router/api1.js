@@ -29,8 +29,8 @@ api.post('/auth/signup', signup);
 api.get('/orders', Auth, orders);
 api.get('/orders/:id', Auth, order);
 api.get('/users/:user_id/orders', Auth, orderHistory);
-api.post('/menu', newMenu);
-api.get('/menu', allMenu);
+api.post('/menu', Auth, newMenu);
+api.get('/menu', Auth, allMenu);
 api.post('/orders', Auth, newOrder);
 api.put('/orders/:id', Auth, updateOrder);
 

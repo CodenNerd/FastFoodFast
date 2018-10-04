@@ -33,7 +33,7 @@ const validateAs = (item, datatype, itemname) => {
       }
       break;
     case 'string':
-      if (typeof item !== 'string') {
+      if (typeof item !== 'string' || Number.isNaN(Number(item * item)) === false) {
         return {
           errormessage: `${itemname} should be a string`,
           status: false,

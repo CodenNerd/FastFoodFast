@@ -5,7 +5,7 @@ dotenv.config();
 
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
+  connectionString: process.env.TEST_URL,
 });
 
 
@@ -77,7 +77,7 @@ const createUsersTable = () => {
 
 const dropUsersTable = () => {
   const queryText = `DROP TABLE IF EXISTS
-   users returning *`;
+   users`;
   pool.query(queryText)
     .then((res) => {
       console.log('users table dropped', res);

@@ -1,9 +1,13 @@
 // import uuidv4 from 'uuid/v4';
 import db from '../db/index';
+import Validator from '../../Validator/Validator';
 
 
 const newOrder = {
   async newOrder(req, res) {
+    Validator(req.body.foodname, ['string'], res, 'foodname');
+    Validator(req.body.quantity, ['integer'], res, 'quantity');
+    Validator(req.body.price, ['number'], res, 'price');
     const text = `INSERT INTO
       orders(foodname, quantity, price, foodstatus, owner_id, date_created, date_modified)
       VALUES($1, $2, $3, $4, $5, $6, $7)
@@ -12,7 +16,7 @@ const newOrder = {
       req.body.foodname,
       req.body.quantity,
       req.body.price,
-      req.body.foodstatus,
+      'New',
       req.user.id,
       new Date(),
       new Date(),
