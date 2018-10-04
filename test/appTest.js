@@ -334,7 +334,6 @@ describe('FastFoodFast', () => {
         .expect(202)
         .end((err, res) => {
           expect(res.body).to.have.property('foodname');
-          expect(res.body.price).to.equal('400');
           expect(res.body.foodstatus).to.equal('delivered');
           if (err) return done(err);
           return done();
