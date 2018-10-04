@@ -196,7 +196,7 @@ describe('FastFoodFast', () => {
     });
   });
 
-  let randomMail = test@mail.com;
+  let randomMail = 'test@mail.com';
   describe('POST /auth/signup', () => {
     it('should sign up', (done) => {
       randomMail = `${Math.random()}this@test.com`;
