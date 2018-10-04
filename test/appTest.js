@@ -196,9 +196,10 @@ describe('FastFoodFast', () => {
     });
   });
 
+  const randomMail;
   describe('POST /auth/signup', () => {
     it('should sign up', (done) => {
-      const randomMail = `${Math.random()}this@test.com`;
+      randomMail = `${Math.random()}this@test.com`;
       const signupdetails = {
         fullname: 'AbdulAzeez',
         email: randomMail,
