@@ -196,11 +196,13 @@ describe('FastFoodFast', () => {
     });
   });
 
+  let randomMail = 'test@mail.com';
   describe('POST /auth/signup', () => {
     it('should sign up', (done) => {
+      randomMail = `${Math.random()}this@test.com`;
       const signupdetails = {
         fullname: 'AbdulAzeez',
-        email: `${Math.random()}this@test.com`,
+        email: randomMail,
         password: 'test',
       };
       request(app).post('/api/v1/auth/signup')
@@ -219,7 +221,7 @@ describe('FastFoodFast', () => {
   describe('POST /auth/login', () => {
     it('should login', (done) => {
       const logindetails = {
-        email: 'this@test.com',
+        email: randomMail,
         password: 'test',
       };
       request(app).post('/api/v1/auth/login')
@@ -257,6 +259,27 @@ describe('FastFoodFast', () => {
     });
   });
 
+  describe('POST /menu', () => {
+    it('should create a new order', (done) => {
+      const newOrder = {
+        foodname: 'amala',
+        price: 3,
+      };
+      request(app).post('/api/v1/menu')
+        .set('x-access-token', authToken)
+        .send(newOrder)
+        .expect('Content-Type', /json/)
+        .expect(201)
+        .end((err, res) => {
+          expect(res.body).to.have.property('foodname');
+          expect(res.body).to.have.property('price');
+
+          if (err) return done(err);
+          return done();
+        });
+    });
+  });
+
   describe('GET /orders ', () => {
     it('should get all orders', (done) => {
       request(app).get('/api/v1/orders')
@@ -273,7 +296,7 @@ describe('FastFoodFast', () => {
   });
   describe('GET /order', () => {
     it('should get a single order', (done) => {
-      request(app).get('/api/v1/orders/3')
+      request(app).get('/api/v1/orders/1')
         .set('x-access-token', authToken)
         .expect('Content-Type', /json/)
         .expect(200)
@@ -304,15 +327,13 @@ describe('FastFoodFast', () => {
       const orderUpdate = {
         foodstatus: 'delivered',
       };
-      request(app).put('/api/v1/orders/3')
+      request(app).put('/api/v1/orders/1')
         .set('x-access-token', authToken)
         .send(orderUpdate)
         .expect('Content-Type', /json/)
         .expect(202)
         .end((err, res) => {
           expect(res.body).to.have.property('foodname');
-          expect(res.body.quantity).to.equal(6);
-          expect(res.body.price).to.equal('400');
           expect(res.body.foodstatus).to.equal('delivered');
           if (err) return done(err);
           return done();
@@ -365,27 +386,6 @@ describe('FastFoodFast', () => {
         .end((err, res) => {
           expect(res.body).to.have.property('rows');
           expect(res.body.rows).to.be.a('array');
-          if (err) return done(err);
-          return done();
-        });
-    });
-  });
-
-  describe('POST /menu', () => {
-    it('should create a new order', (done) => {
-      const newOrder = {
-        foodname: 'amala',
-        price: 3,
-      };
-      request(app).post('/api/v1/menu')
-        .set('x-access-token', authToken)
-        .send(newOrder)
-        .expect('Content-Type', /json/)
-        .expect(201)
-        .end((err, res) => {
-          expect(res.body).to.have.property('foodname');
-          expect(res.body).to.have.property('price');
-
           if (err) return done(err);
           return done();
         });
