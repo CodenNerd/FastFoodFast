@@ -296,7 +296,7 @@ describe('FastFoodFast', () => {
   });
   describe('GET /order', () => {
     it('should get a single order', (done) => {
-      request(app).get('/api/v1/orders/3')
+      request(app).get('/api/v1/orders/1')
         .set('x-access-token', authToken)
         .expect('Content-Type', /json/)
         .expect(200)
@@ -327,7 +327,7 @@ describe('FastFoodFast', () => {
       const orderUpdate = {
         foodstatus: 'delivered',
       };
-      request(app).put('/api/v1/orders/3')
+      request(app).put('/api/v1/orders/1')
         .set('x-access-token', authToken)
         .send(orderUpdate)
         .expect('Content-Type', /json/)
