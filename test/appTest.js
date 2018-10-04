@@ -198,9 +198,10 @@ describe('FastFoodFast', () => {
 
   describe('POST /auth/signup', () => {
     it('should sign up', (done) => {
+      const randomMail = `${Math.random()}this@test.com`;
       const signupdetails = {
         fullname: 'AbdulAzeez',
-        email: `${Math.random()}this@test.com`,
+        email: randomMail,
         password: 'test',
       };
       request(app).post('/api/v1/auth/signup')
@@ -219,7 +220,7 @@ describe('FastFoodFast', () => {
   describe('POST /auth/login', () => {
     it('should login', (done) => {
       const logindetails = {
-        email: 'this@test.com',
+        email: randomMail,
         password: 'test',
       };
       request(app).post('/api/v1/auth/login')
