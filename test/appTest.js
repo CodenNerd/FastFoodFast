@@ -279,8 +279,12 @@ describe('FastFoodFast', () => {
         .expect('Content-Type', /json/)
         .expect(200)
         .end((err, res) => {
-          expect(res.body).to.have.property('rows');
-          expect(res.body).to.have.property('rowCount');
+          expect(res.body).to.have.property('id');
+          expect(res.body).to.have.property('foodname');
+          expect(res.body).to.have.property('quantity');
+          expect(res.body).to.have.property('price');
+          expect(res.body).to.have.property('foodstatus');
+          expect(res.body).to.have.property('owner_id');
           if (err) return done(err);
           return done();
         });
@@ -290,7 +294,7 @@ describe('FastFoodFast', () => {
       request(app).get('/api/v1/orders/9')
         .expect('Content-Type', /json/)
         .expect(404)
-        .expect(/That particular order was not found/, done);
+        .expect(/{ message: 'this order was not found on our server' }/, done);
     });
   });
 
