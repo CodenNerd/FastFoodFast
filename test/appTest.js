@@ -251,7 +251,6 @@ describe('FastFoodFast', () => {
           expect(res.body).to.have.property('foodname');
           expect(res.body).to.have.property('owner_id');
 
-
           if (err) return done(err);
           return done();
         });
@@ -354,6 +353,42 @@ describe('FastFoodFast', () => {
           .expect(400)
           .expect(/{"errormessage":"foodstatus should be a string","status":false}/, done);
       });
+    });
+  });
+
+  describe('GET /menu', () => {
+    it('should get all menu', (done) => {
+      request(app).get('/api/v1/menu')
+        .set('x-access-token', authToken)
+        .expect('Content-Type', /json/)
+        .expect(200)
+        .end((err, res) => {
+          expect(res.body).to.have.property('rows');
+          expect(res.body.rows).to.be.a('array');
+          if (err) return done(err);
+          return done();
+        });
+    });
+  });
+
+  describe('POST /menu', () => {
+    it('should create a new order', (done) => {
+      const newOrder = {
+        foodname: 'amala',
+        price: 3,
+      };
+      request(app).post('/api/v1/menu')
+        .set('x-access-token', authToken)
+        .send(newOrder)
+        .expect('Content-Type', /json/)
+        .expect(201)
+        .end((err, res) => {
+          expect(res.body).to.have.property('foodname');
+          expect(res.body).to.have.property('price');
+
+          if (err) return done(err);
+          return done();
+        });
     });
   });
 
