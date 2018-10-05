@@ -228,6 +228,9 @@ opacity: 0.5;
 padding-left: 2%;
 padding-right: 2%;
 }
+.overlay form input[placeholder='qty']{
+    width:30%;
+}
 .overlay select option{
 opacity: 0.5;
 background-color: black;
@@ -235,7 +238,7 @@ border: 1px dotted black;
 outline: none;
 color: dimgray;
 }
-.overlay form>button{
+.overlay form>button, .greenbutton{
     width: 30%;
     min-height: 30px;
     background-color: darkolivegreen;
@@ -467,4 +470,6 @@ color: dimgray;
     color: white;
 }
 /*---------------------reference ends here (modified) ------------------*/ 
-
+.greentext{
+    color: darkgreen;
+}
